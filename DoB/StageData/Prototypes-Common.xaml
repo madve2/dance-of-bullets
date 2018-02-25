@@ -1,0 +1,264 @@
+﻿<dx:Prototypes xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:b="clr-namespace:DoB.Behaviors;assembly=DoB" xmlns:d="clr-namespace:DoB.Drawers;assembly=DoB" xmlns:dx="clr-namespace:DoB.Xaml;assembly=DoB"
+               xmlns:g="clr-namespace:DoB.GameObjects;assembly=DoB">
+	<!--  Region Constants  -->
+	<dx:ColorConstant x:Key="Magenta" StringValue="255,0,151,255" />
+    <dx:ColorConstant x:Key="Purple" StringValue="162,0,255,255" />
+    <dx:ColorConstant x:Key="Teal" StringValue=" 0,171,169,255" />
+    <dx:ColorConstant x:Key="Lime" StringValue="140,191,38,255" />
+    <dx:ColorConstant x:Key="Brown" StringValue="160,80,0,255" />
+    <dx:ColorConstant x:Key="Pink" StringValue="230,113,184,255" />
+    <dx:ColorConstant x:Key="Orange" StringValue="240,150,9,255" />
+    <dx:ColorConstant x:Key="Blue" StringValue="27,161,226,255" />
+    <dx:ColorConstant x:Key="Red" StringValue="229,20,0,255" />
+    <dx:ColorConstant x:Key="Green" StringValue="51,153,51,255" />
+    <dx:ColorConstant x:Key="Yellow" StringValue="240,240,0,255" />
+    <dx:ColorConstant x:Key="Black" StringValue="0,0,0,255" />
+	<!--
+		<dx:DoubleConstant x:Key="ExplosionBaseSpeed" Value="150" />
+		<dx:DoubleConstant x:Key="ExplosionParticleSpeed" Value="40" />
+	-->
+
+	<!--  End region  -->
+
+	<!--  Region Common bullets  -->
+	<g:Bullet x:Key="SpiralBullet" BaseTexture="bullet1" CollisionBoxScale="0.5" R="10">
+		<b:RadialMovementBehavior Vr="100" />
+		<b:CircularMovementBehavior Aper="10" Vper="10" />
+	</g:Bullet>
+
+	<g:Bullet x:Key="SpiralRBullet" BaseTexture="bullet1" CollisionBoxScale="0.5" R="10">
+		<b:RadialMovementBehavior Vr="100" />
+		<b:CircularMovementBehavior Aper="-10" Vper="-10" />
+	</g:Bullet>
+
+	<g:Bullet x:Key="SmallSpiralBullet" BaseTexture="bullet1" CollisionBoxScale="0.4" R="8">
+		<b:RadialMovementBehavior Vr="100" />
+		<b:CircularMovementBehavior Aper="10" Vper="10" />
+	</g:Bullet>
+
+	<!--  End region  -->
+
+	<!--  Region Behaviors  -->
+	<b:TurningTurretBehavior x:Key="LineDownTurret"
+	                         Alpha="{dx:Degrees 90}"
+	                         Capacity="3" GunCooldownMs="100" ReloadDurationMs="500">
+		<g:MultiBullet BaseTexture="bullet1" CollisionBoxScale="0.5" Count="3" DuplicateCooldownMs="100"
+		               R="10"
+		               Tint="{dx:Constant Lime}">
+			<b:RadialMovementBehavior Vr="200" />
+		</g:MultiBullet>
+	</b:TurningTurretBehavior>
+
+	<b:TurningTurretBehavior x:Key="LineUpTurret"
+	                         Alpha="{dx:Degrees -90}"
+	                         Capacity="3" GunCooldownMs="100" ReloadDurationMs="500">
+		<g:MultiBullet BaseTexture="bullet1" CollisionBoxScale="0.5" Count="3" DuplicateCooldownMs="100"
+		               R="10"
+		               Tint="{dx:Constant Teal}">
+			<b:RadialMovementBehavior Vr="200" />
+		</g:MultiBullet>
+	</b:TurningTurretBehavior>
+
+	<b:TurningTurretBehavior x:Key="SpinningTurret"
+	                         Alpha="{dx:Degrees 80}"
+	                         Capacity="20" GunCooldownMs="100" ReloadDurationMs="1000"
+	                         TurnAfterReload="{dx:Degrees -30}"
+	                         TurnAfterShoot="{dx:Degrees 10}">
+		<g:MultiBullet BaseTexture="bullet1" CollisionBoxScale="0.5" Count="3" DuplicateCooldownMs="300"
+		               R="10"
+		               Tint="{dx:Constant Orange}">
+			<b:RadialMovementBehavior Vr="200" />
+		</g:MultiBullet>
+	</b:TurningTurretBehavior>
+
+	<b:AimingTurretBehavior x:Key="AimingTurret" Capacity="12" GunCooldownMs="30" NeedsReloadFirst="True"
+	                        ReloadDurationMs="1000">
+		<g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.5" R="7"
+		          Tint="{dx:Constant Green}">
+			<b:RadialMovementBehavior Vr="250" />
+		</g:Bullet>
+	</b:AimingTurretBehavior>
+
+    <b:AimingTurretBehavior x:Key="AimingTurretB" Capacity="24" GunCooldownMs="30" NeedsReloadFirst="True"
+	                        ReloadDurationMs="1000">
+        <g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.5" R="7"
+		          Tint="{dx:Constant Lime}">
+            <b:RadialMovementBehavior Vr="250" />
+        </g:Bullet>
+    </b:AimingTurretBehavior>
+
+    <b:TurningTurretBehavior x:Key="SpiralTurret"
+	                         BulletPrototype="{dx:Prototype SpiralBullet}"
+	                         GunCooldownMs="100" TurnAfterShoot="0.5" />
+
+	<b:TurningTurretBehavior x:Key="SpiralRTurret"
+	                         BulletPrototype="{dx:Prototype SpiralRBullet}"
+	                         GunCooldownMs="100" TurnAfterShoot="-0.5" />
+
+	<b:TurningTurretBehavior x:Key="WhipSpiralTurret"
+	                         Alpha="{dx:Degrees 180}"
+	                         BulletPrototype="{dx:Prototype SmallSpiralBullet}"
+	                         GunCooldownMs="250"
+	                         TurnAfterShoot="{dx:Degrees -4}" />
+
+	<b:TurningTurretBehavior x:Key="SpiralSlicesTurret"
+	                         Alpha="{dx:Degrees 180}"
+	                         GunCooldownMs="80"
+	                         TurnAfterShoot="{dx:Degrees -16}">
+		<g:MultiBullet BaseTexture="bullet1" CollisionBoxScale="0.4" Count="5"
+		               DegIncrement="{dx:Degrees 3}"
+		               DuplicateCooldownMs="80" R="8">
+			<b:RadialMovementBehavior Vr="200" />
+			<b:CircularMovementBehavior Aper="-10" Vper="-10" />
+		</g:MultiBullet>
+	</b:TurningTurretBehavior>
+
+	<b:TurningTurretBehavior x:Key="SlowBeamTurret"
+	                         Alpha="{dx:Degrees 90}"
+	                         GunCooldownMs="100"
+	                         TurnAfterShoot="{dx:Degrees 2}">
+		<g:Bullet BaseTexture="arrow" CollisionBoxScale="0.4" R="8">
+			<b:RadialMovementBehavior Vr="200" />
+			<b:CircularMovementBehavior Aper="-10" Vper="-10" />
+		</g:Bullet>
+	</b:TurningTurretBehavior>
+
+	<b:TurningTurretBehavior x:Key="SlowBeamTurretR"
+	                         Alpha="{dx:Degrees 90}"
+	                         GunCooldownMs="100"
+	                         TurnAfterShoot="{dx:Degrees -2}">
+		<g:Bullet BaseTexture="arrow" CollisionBoxScale="0.4" R="8">
+			<b:RadialMovementBehavior Vr="200" />
+			<b:CircularMovementBehavior Aper="10" Vper="10" />
+		</g:Bullet>
+	</b:TurningTurretBehavior>
+
+	<b:BehaviorBag x:Key="AlternatingSpiralTurret" Loop="True">
+		<b:GunBehaviorReference DelayMs="0" LengthMs="2000" ReferenceName="SpiralTurret" />
+		<b:GunBehaviorReference DelayMs="2000" LengthMs="2000" ReferenceName="SpiralRTurret" />
+	</b:BehaviorBag>
+
+	<b:BehaviorBag x:Key="AlternatingSpiralRTurret" Loop="True">
+		<b:GunBehaviorReference DelayMs="0" LengthMs="2000" ReferenceName="SpiralRTurret" />
+		<b:GunBehaviorReference DelayMs="2000" LengthMs="2000" ReferenceName="SpiralTurret" />
+	</b:BehaviorBag>
+
+	<b:TurningTurretBehavior x:Key="MultiSpiralTurret" GunCooldownMs="150" TurnAfterShoot="0.3">
+		<g:MultiBullet BaseTexture="bullet1" CollisionBoxScale="0.5" Count="12" DuplicateCooldownMs="80"
+		               R="10">
+			<b:RadialMovementBehavior Vr="200" />
+			<b:CircularMovementBehavior Aper="10" Vper="10" />
+		</g:MultiBullet>
+	</b:TurningTurretBehavior>
+
+	<b:TurningTurretBehavior x:Key="MultiSpiralRTurret" GunCooldownMs="150" TurnAfterShoot="-0.3">
+		<g:MultiBullet BaseTexture="bullet1" CollisionBoxScale="0.5" Count="12" DuplicateCooldownMs="80"
+		               R="10">
+			<b:RadialMovementBehavior Vr="200" />
+			<b:CircularMovementBehavior Aper="-10" Vper="-10" />
+		</g:MultiBullet>
+	</b:TurningTurretBehavior>
+
+	<b:BehaviorBag x:Key="WingsTurret">
+		<b:TurningTurretBehavior Capacity="18" GunCooldownMs="10" ReloadDurationMs="0"
+		                         TurnAfterReload="{dx:Degrees 30}"
+		                         TurnAfterShoot="{dx:Degrees 5}">
+			<g:MultiBullet BaseTexture="bullet1" CollisionBoxScale="0.5" Count="4" DuplicateCooldownMs="120"
+			               R="10">
+				<b:RadialMovementBehavior Vr="200" />
+				<b:CircularMovementBehavior Aper="10" Vper="10" />
+			</g:MultiBullet>
+		</b:TurningTurretBehavior>
+		<b:TurningTurretBehavior Alpha="{dx:Degrees 30}"
+		                         Capacity="18" GunCooldownMs="10" ReloadDurationMs="0"
+		                         TurnAfterReload="{dx:Degrees -30}"
+		                         TurnAfterShoot="{dx:Degrees -5}">
+			<g:MultiBullet BaseTexture="bullet1" CollisionBoxScale="0.5" Count="4" DuplicateCooldownMs="120"
+			               R="10">
+				<b:RadialMovementBehavior Vr="200" />
+				<b:CircularMovementBehavior Aper="-10" Vper="-10" />
+			</g:MultiBullet>
+		</b:TurningTurretBehavior>
+	</b:BehaviorBag>
+	<b:BehaviorBag x:Key="RingsTurret">
+		<b:TurningTurretBehavior Alpha="{dx:Degrees 90}"
+		                         Capacity="6" DelayMs="1000" GunCooldownMs="1" NeedsReloadFirst="False"
+		                         ReloadDurationMs="300"
+		                         TurnAfterReload="{dx:Degrees 20}"
+		                         TurnAfterShoot="{dx:Degrees 8}">
+			<g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15"
+			          Tint="{dx:Constant Green}">
+				<b:RadialMovementBehavior Vr="150" />
+				<b:CircularMovementBehavior Vdeg="0.7" />
+				<b:SuicideBehavior TimeoutMs="15000" />
+			</g:Bullet>
+		</b:TurningTurretBehavior>
+
+		<b:TurningTurretBehavior Alpha="{dx:Degrees 90}"
+		                         Capacity="6" DelayMs="1300" GunCooldownMs="1" NeedsReloadFirst="False"
+		                         ReloadDurationMs="300"
+		                         TurnAfterReload="{dx:Degrees -20}"
+		                         TurnAfterShoot="{dx:Degrees -8}">
+			<g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15" Tint="{dx:Constant Orange}">
+				<b:RadialMovementBehavior Vr="150" />
+				<b:CircularMovementBehavior Vdeg="-0.7" />
+				<b:SuicideBehavior TimeoutMs="15000" />
+			</g:Bullet>
+		</b:TurningTurretBehavior>
+	</b:BehaviorBag>
+
+	<b:BehaviorBag x:Key="ScarfTurret">
+		<b:TurningTurretBehavior Alpha="{dx:Degrees 170}"
+		                         GunCooldownMs="100"
+		                         TurnAfterReload="{dx:Degrees 40}"
+		                         TurnAfterShoot="{dx:Degrees 10}">
+			<g:MultiBullet BaseTexture="bullet1" CollisionBoxScale="0.7" Count="3"
+			               DegIncrement="{dx:Degrees 10}"
+			               DieOffScreen="False" DuplicateCooldownMs="10" R="15"
+			               Tint="{dx:Constant Magenta}">
+				<b:RadialMovementBehavior Vr="100" />
+				<b:CircularMovementBehavior Vper="200" />
+				<b:SuicideBehavior TimeoutMs="15000" />
+			</g:MultiBullet>
+		</b:TurningTurretBehavior>
+		<b:TurningTurretBehavior Alpha="{dx:Degrees 170}"
+		                         GunCooldownMs="100"
+		                         TurnAfterReload="{dx:Degrees -40}"
+		                         TurnAfterShoot="{dx:Degrees -10}">
+			<g:MultiBullet BaseTexture="bullet1" CollisionBoxScale="0.7" Count="3"
+			               DegIncrement="{dx:Degrees 10}"
+			               DieOffScreen="False" DuplicateCooldownMs="10" R="15"
+			               Tint="{dx:Constant Blue}">
+				<b:RadialMovementBehavior Vr="100" />
+				<b:CircularMovementBehavior Vper="-200" />
+				<b:SuicideBehavior TimeoutMs="15000" />
+			</g:MultiBullet>
+		</b:TurningTurretBehavior>
+	</b:BehaviorBag>
+
+	<b:BehaviorBag x:Key="FroggerTurret">
+		<b:TurningTurretBehavior Alpha="{dx:Degrees 170}"
+		                         Capacity="3" GunCooldownMs="10" ReloadDurationMs="100"
+		                         TurnAfterReload="{dx:Degrees -10}"
+		                         TurnAfterShoot="{dx:Degrees -2}">
+			<g:MultiBullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15"
+			               Tint="{dx:Constant Lime}">
+				<b:RadialMovementBehavior Vr="100" />
+				<b:CircularMovementBehavior Vper="200" />
+				<b:SuicideBehavior TimeoutMs="15000" />
+			</g:MultiBullet>
+		</b:TurningTurretBehavior>
+		<b:TurningTurretBehavior Alpha="{dx:Degrees 170}"
+		                         Capacity="3" GunCooldownMs="10" ReloadDurationMs="100"
+		                         TurnAfterReload="{dx:Degrees 10}"
+		                         TurnAfterShoot="{dx:Degrees 2}">
+			<g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15"
+			          Tint="{dx:Constant Red}">
+				<b:RadialMovementBehavior Vr="100" />
+				<b:CircularMovementBehavior Vper="-200" />
+				<b:SuicideBehavior TimeoutMs="15000" />
+			</g:Bullet>
+		</b:TurningTurretBehavior>
+	</b:BehaviorBag>
+	<!--  End region  -->
+</dx:Prototypes>

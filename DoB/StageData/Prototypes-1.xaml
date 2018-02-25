@@ -1,0 +1,223 @@
+﻿<dx:Prototypes xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:b="clr-namespace:DoB.Behaviors;assembly=DoB" xmlns:d="clr-namespace:DoB.Drawers;assembly=DoB" xmlns:dx="clr-namespace:DoB.Xaml;assembly=DoB"
+               xmlns:g="clr-namespace:DoB.GameObjects;assembly=DoB">
+
+    <g:Enemy x:Key="Stage2ZEnemy4" BaseTexture="tiki_mask" EventOnDeath="Stage2ZEnemy4Died" Lives="180"
+	         R="80">
+        <g:Enemy.Drawers>
+            <d:HealthbarDrawer Width="400" Height="10"
+			                   BorderColor="{dx:Constant Green}"
+			                   X="440" Y="680"
+			                   Color="{dx:Constant Black}" />
+        </g:Enemy.Drawers>
+        <b:KeyFramedMovementBehavior EasingPow="2">
+            <b:KeyFrame DurationMs="300" TranslateX="-250" />
+        </b:KeyFramedMovementBehavior>
+        <b:BehaviorBag Loop="True" DelayMs="300">
+            <!-- TODO: The "contents" of the following 4 turrets are the same, with only Alpha, Tint and WaitForEvent being different, and actually it's the last one preventing the usage of GunBehaviorReference here – room for improvement in GunBehaviorReference flexibility! -->
+            <b:TurningTurretBehavior TurnAfterShoot="{dx:Degrees 10}" GunCooldownMs="30" LengthMs="3000">
+                <g:Bullet BaseTexture="bullet2" CollisionBoxScale="0.7" R="15" DieOffScreen="False"
+					          Tint="{dx:Constant Green}">
+                    <b:RadialMovementBehavior Vr="200" LengthMs="1000" />
+                    <b:BehaviorBag DelayMs="1000">
+                        <b:CircularMovementBehavior Vper="200" />
+                        <b:RadialMovementBehavior Vr="650" WaitForEvent="Stage2ZEnemy4Attacks" />
+                    </b:BehaviorBag>
+                    <b:DieOffScreenBehavior DelayMs="4000" />
+                </g:Bullet>
+            </b:TurningTurretBehavior>
+            <b:TurningTurretBehavior Alpha="{dx:Degrees 90}" TurnAfterShoot="{dx:Degrees 10}" GunCooldownMs="30" LengthMs="3000">
+                <g:Bullet BaseTexture="bullet2" CollisionBoxScale="0.7" R="15" DieOffScreen="False"
+					          Tint="{dx:Constant Orange}">
+                    <b:RadialMovementBehavior Vr="200" LengthMs="1000" />
+                    <b:BehaviorBag DelayMs="1000">
+                        <b:CircularMovementBehavior Vper="200" />
+                        <b:RadialMovementBehavior Vr="650" WaitForEvent="Stage2ZEnemy4Attacks2" />
+                    </b:BehaviorBag>
+                    <b:DieOffScreenBehavior DelayMs="4000" />
+                </g:Bullet>
+            </b:TurningTurretBehavior>
+            <b:TurningTurretBehavior Alpha="{dx:Degrees 180}" TurnAfterShoot="{dx:Degrees 10}" GunCooldownMs="30" LengthMs="3000">
+                <g:Bullet BaseTexture="bullet2" CollisionBoxScale="0.7" R="15" DieOffScreen="False"
+					          Tint="{dx:Constant Lime}">
+                    <b:RadialMovementBehavior Vr="200" LengthMs="1000" />
+                    <b:BehaviorBag DelayMs="1000">
+                        <b:CircularMovementBehavior Vper="200" />
+                        <b:RadialMovementBehavior Vr="650" WaitForEvent="Stage2ZEnemy4Attacks3" />
+                    </b:BehaviorBag>
+                    <b:DieOffScreenBehavior DelayMs="4000" />
+                </g:Bullet>
+            </b:TurningTurretBehavior>
+            <b:TurningTurretBehavior Alpha="{dx:Degrees 270}" TurnAfterShoot="{dx:Degrees 10}" GunCooldownMs="30" LengthMs="3000">
+                <g:Bullet BaseTexture="bullet2" CollisionBoxScale="0.7" R="15" DieOffScreen="False"
+					          Tint="{dx:Constant Red}">
+                    <b:RadialMovementBehavior Vr="200" LengthMs="1000" />
+                    <b:BehaviorBag DelayMs="1000">
+                        <b:CircularMovementBehavior Vper="200" />
+                        <b:RadialMovementBehavior Vr="650" WaitForEvent="Stage2ZEnemy4Attacks4" />
+                    </b:BehaviorBag>
+                    <b:DieOffScreenBehavior DelayMs="4000" />
+                </g:Bullet>
+            </b:TurningTurretBehavior>
+            <b:NopBehavior DelayMs="3000" LengthMs="2000" />
+        </b:BehaviorBag>
+        <b:FireEventBehavior CooldownMs="5000" EventName="Stage2ZEnemy4Attacks" />
+        <b:FireEventBehavior DelayMs="300" CooldownMs="5000" EventName="Stage2ZEnemy4Attacks2" />
+        <b:FireEventBehavior DelayMs="600" CooldownMs="5000" EventName="Stage2ZEnemy4Attacks3" />
+        <b:FireEventBehavior DelayMs="900" CooldownMs="5000" EventName="Stage2ZEnemy4Attacks4" />
+    </g:Enemy>
+
+    <g:Enemy x:Key="Stage2ZEnemy0" BaseTexture="wasp" EventOnDeath="Stage2ZEnemy0Died" Lives="180"
+	         R="40">
+		<g:Enemy.Drawers>
+			<d:HealthbarDrawer Width="400" Height="10"
+			                   BorderColor="{dx:Constant Magenta}"
+			                   X="440" Y="680"
+			                   Color="{dx:Constant Red}" />
+		</g:Enemy.Drawers>
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame DurationMs="300" TranslateX="-250" />
+		</b:KeyFramedMovementBehavior>
+		<b:TurningTurretBehavior Alpha="{dx:Degrees 90}"
+		                         Capacity="3" DelayMs="1000" GunCooldownMs="300" NeedsReloadFirst="False"
+		                         ReloadDurationMs="600"
+		                         TurnAfterReload="{dx:Degrees 20}"
+		                         TurnAfterShoot="{dx:Degrees 8}">
+			<g:BulletBag>
+				<g:ExplodingBullet ClusterCount="6" Vexpl="40">
+					<g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15"
+					          Tint="{dx:Constant Magenta}">
+						<b:RadialMovementBehavior Vr="450" />
+						<b:CircularMovementBehavior Vdeg="0.7" />
+						<b:SuicideBehavior TimeoutMs="15000" />
+						<b:SuicideBehavior OnEvent="Stage2ZEnemy0Died" />
+					</g:Bullet>
+				</g:ExplodingBullet>
+				<g:ExplodingBullet ClusterCount="6"
+				                   GeneralDirection="{dx:Degrees 180}"
+				                   Vexpl="40">
+					<g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15">
+						<b:RadialMovementBehavior Vr="450" />
+						<b:CircularMovementBehavior Vdeg="0.7" />
+						<b:SuicideBehavior TimeoutMs="15000" />
+						<b:SuicideBehavior OnEvent="Stage2ZEnemy0Died" />
+					</g:Bullet>
+				</g:ExplodingBullet>
+			</g:BulletBag>
+		</b:TurningTurretBehavior>
+	</g:Enemy>
+
+	<g:Enemy x:Key="Stage2ZEnemy1" BaseTexture="wasp" EventOnDeath="Stage2ZEnemy1Died" Lives="120"
+	         R="40">
+		<g:Enemy.Drawers>
+			<d:HealthbarDrawer Width="400" Height="10"
+			                   BorderColor="{dx:Constant Magenta}"
+			                   X="440" Y="680"
+			                   Color="{dx:Constant Red}" />
+		</g:Enemy.Drawers>
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame DurationMs="300" TranslateX="-250" />
+		</b:KeyFramedMovementBehavior>
+		<b:GunBehaviorReference ReferenceName="RingsTurret" />
+	</g:Enemy>
+
+	<g:Enemy x:Key="Stage2ZEnemy2" BaseTexture="wasp" EventOnDeath="Stage2ZEnemy2Died" Lives="120"
+	         R="40">
+		<g:Enemy.Drawers>
+			<d:HealthbarDrawer Width="400" Height="10"
+			                   BorderColor="{dx:Constant Magenta}"
+			                   X="440" Y="680"
+			                   Color="{dx:Constant Red}" />
+		</g:Enemy.Drawers>
+		<b:GunBehaviorReference ReferenceName="FroggerTurret" />
+	</g:Enemy>
+
+	<g:Enemy x:Key="Stage2ZEnemy3" BaseTexture="wasp" EventOnDeath="Stage2ZEnemy3Died" Lives="120"
+	         R="40">
+		<g:Enemy.Drawers>
+			<d:HealthbarDrawer Width="400" Height="10"
+			                   BorderColor="{dx:Constant Magenta}"
+			                   X="440" Y="680"
+			                   Color="{dx:Constant Red}" />
+		</g:Enemy.Drawers>
+		<b:GunBehaviorReference ReferenceName="ScarfTurret" />
+	</g:Enemy>
+
+	<g:Enemy x:Key="Stage2BEnemy1" BaseTexture="wasp" Lives="30" R="30">
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame DurationMs="2000" HoldMs="1500" TranslateX="-350" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
+		<b:GunBehaviorReference BulletTintOverride="{dx:Constant Green}" ReferenceName="WhipSpiralTurret" />
+		<b:SuicideBehavior OnEvent="Stage2BossDied" />
+	</g:Enemy>
+
+	<g:Enemy x:Key="Stage2BEnemy2" BaseTexture="wasp" Lives="50" R="30">
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame DurationMs="2000" HoldMs="1500" TranslateX="-240" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
+		<b:GunBehaviorReference BulletTintOverride="{dx:Constant Green}" ReferenceName="WhipSpiralTurret" />
+		<b:SuicideBehavior OnEvent="Stage2BossDied" />
+	</g:Enemy>
+
+	<g:Enemy x:Key="Stage2BBoss" BaseTexture="wasp" EventOnDeath="Stage2BBossDied" Lives="100"
+	         R="25"
+	         Tint="{dx:Constant Blue}">
+		<g:Enemy.Drawers>
+			<d:HealthbarDrawer Width="400" Height="10"
+			                   BorderColor="{dx:Constant Blue}"
+			                   X="440" Y="680"
+			                   Color="{dx:Constant Red}" />
+		</g:Enemy.Drawers>
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame DurationMs="2000" TranslateX="-120" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
+		<b:GunBehaviorReference BulletTintOverride="{dx:Constant Blue}" ReferenceName="SpiralSlicesTurret" />
+	</g:Enemy>
+
+	<g:Enemy x:Key="Stage2ABossShell" BaseTexture="bullet2" Lives="40" R="28"
+	         Tint="{dx:Constant Lime}">
+		<g:Enemy.Drawers>
+			<d:HealthbarDrawer Width="400" Height="10"
+			                   BorderColor="{dx:Constant Lime}"
+			                   DelayMs="1500" X="440" Y="680"
+			                   Color="{dx:Constant Red}" />
+		</g:Enemy.Drawers>
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame DurationMs="1500" FromR="1" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
+		<b:GunBehaviorReference BulletTintOverride="{dx:Constant Lime}"
+		                        DelayMs="2000" ReferenceName="SlowBeamTurretR" />
+	</g:Enemy>
+
+	<g:Enemy x:Key="Stage2ABoss" BaseTexture="bullet2" EventOnDeath="Stage2ABossDied" Lives="70"
+	         R="20"
+	         Tint="{dx:Constant Pink}">
+		<g:Enemy.Drawers>
+			<d:HealthbarDrawer Width="400" Height="10"
+			                   BorderColor="{dx:Constant Pink}"
+			                   DelayMs="1500" X="440" Y="680"
+			                   Color="{dx:Constant Red}" />
+		</g:Enemy.Drawers>
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame DurationMs="1500" FromR="1" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
+		<b:GunBehaviorReference BulletTintOverride="{dx:Constant Pink}"
+		                        DelayMs="1000" ReferenceName="SlowBeamTurret" />
+		<b:GunBehaviorReference BulletTintOverride="{dx:Constant Pink}"
+		                        DelayMs="5000" ReferenceName="SlowBeamTurret" />
+		<b:GunBehaviorReference BulletTintOverride="{dx:Constant Pink}"
+		                        DelayMs="9000" ReferenceName="SlowBeamTurret" />
+		<b:GunBehaviorReference BulletTintOverride="{dx:Constant Pink}"
+		                        DelayMs="13000" ReferenceName="SlowBeamTurret" />
+		<b:GunBehaviorReference BulletTintOverride="{dx:Constant Pink}"
+		                        DelayMs="17000" ReferenceName="SlowBeamTurret" />
+		<b:GunBehaviorReference BulletTextureOverride="bullet2"
+		                        BulletTintOverride="{dx:Constant Teal}"
+		                        DelayMs="21000" ReferenceName="AimingTurret" />
+	</g:Enemy>
+
+</dx:Prototypes>

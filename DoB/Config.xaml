@@ -1,0 +1,7 @@
+﻿<d:Config xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="clr-namespace:DoB;assembly=DoB">
+	<x:String x:Key="StageDataFile">StageData\Stages.xaml</x:String>
+
+	<x:Int32 x:Key="ResolutionW">1366</x:Int32>
+	<x:Int32 x:Key="ResolutionH">768</x:Int32>
+	
+</d:Config>

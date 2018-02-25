@@ -1,0 +1,129 @@
+﻿<dx:Prototypes xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:b="clr-namespace:DoB.Behaviors;assembly=DoB" xmlns:d="clr-namespace:DoB.Drawers;assembly=DoB" xmlns:dx="clr-namespace:DoB.Xaml;assembly=DoB"
+               xmlns:g="clr-namespace:DoB.GameObjects;assembly=DoB">
+
+	<g:Enemy x:Key="StageAEnemy1" BaseTexture="bird" Lives="450" R="40">
+		<b:XYMovementBehavior Vx="-300" />
+		<b:DieOffScreenBehavior Width="1400" Height="800" X="0" Y="-100" />
+		<b:GunBehaviorReference ReferenceName="LineDownTurret" />
+	</g:Enemy>
+
+	<g:Enemy x:Key="StageAEnemy2" BaseTexture="bird" Lives="450" R="40">
+		<b:XYMovementBehavior Vx="-300" />
+		<b:DieOffScreenBehavior Width="1400" Height="800" X="0" Y="-100" />
+		<b:GunBehaviorReference ReferenceName="LineUpTurret" />
+	</g:Enemy>
+
+	<g:Enemy x:Key="StageABEnemy1" BaseTexture="bee" Lives="8" R="40">
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1000" ToY="290" DurationMs="2000" HoldMs="1500" />
+			<b:KeyFrame ToX="-100" ToY="100" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
+		<b:GunBehaviorReference ReferenceName="SpinningTurret" />
+	</g:Enemy>
+
+	<g:Enemy x:Key="StageABEnemy2" BaseTexture="bee" Lives="8" R="40">
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1000" ToY="430" DurationMs="2000" HoldMs="1500" />
+			<b:KeyFrame ToX="-100" ToY="100" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="1000" X="0" Y="-100" />
+		<b:GunBehaviorReference ReferenceName="SpinningTurret" />
+	</g:Enemy>
+
+	<g:Enemy x:Key="StageBEnemy1" BaseTexture="bird" Lives="12" R="20">
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1100" ToY="50" DurationMs="2000" HoldMs="1500" />
+			<b:KeyFrame ToX="1410" ToY="50" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
+		<b:GunBehaviorReference ReferenceName="AimingTurret" />
+	</g:Enemy>
+
+	<g:Enemy x:Key="StageBEnemy2" BaseTexture="wasp" Lives="12" R="20">
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1100" ToY="360" DurationMs="2000" HoldMs="1500" />
+			<b:KeyFrame ToX="1410" ToY="360" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
+		<b:GunBehaviorReference ReferenceName="AimingTurret" />
+	</g:Enemy>
+
+    <g:Enemy x:Key="StageBEnemy3" BaseTexture="wasp" Lives="12" R="20">
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1100" ToY="670" DurationMs="2000" HoldMs="1500" />
+			<b:KeyFrame ToX="1410" ToY="670" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
+		<b:GunBehaviorReference ReferenceName="AimingTurret" />
+	</g:Enemy>
+
+    <g:Enemy x:Key="StageBCEnemy1" BaseTexture="wasp" Lives="450" R="30">
+		<b:XYMovementBehavior Vx="-400" />
+		<b:TurningTurretBehavior Alpha="{dx:Degrees -90}" GunCooldownMs="120">
+			<g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.5" R="10"
+			          Tint="{dx:Constant Orange}">
+				<b:RadialMovementBehavior Vr="200" />
+			</g:Bullet>
+		</b:TurningTurretBehavior>
+	</g:Enemy>
+
+    <g:Enemy x:Key="BottomBoss" BaseTexture="wasp" EventOnDeath="BottomBossDied" Lives="50"
+	         R="30">
+		<g:Enemy.Drawers>
+			<d:HealthbarDrawer Width="400" Height="10"
+			                   BorderColor="{dx:Constant Yellow}"
+			                   X="440" Y="700"
+			                   Color="{dx:Constant Red}" />
+		</g:Enemy.Drawers>
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1100" ToY="670" DurationMs="2000" HoldMs="120000" />
+			<b:KeyFrame ToX="1410" ToY="670" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:GunBehaviorReference BulletTextureOverride="bullet3"
+		                        BulletTintOverride="{dx:Constant Yellow}"
+		                        ReferenceName="AlternatingSpiralTurret" />
+	</g:Enemy>
+
+    <g:Enemy x:Key="TopBoss" BaseTexture="wasp" EventOnDeath="TopBossDied" Lives="50"
+	         R="30">
+		<g:Enemy.Drawers>
+			<d:HealthbarDrawer Width="400" Height="10"
+			                   BorderColor="{dx:Constant Orange}"
+			                   X="440" Y="660"
+			                   Color="{dx:Constant Red}" />
+		</g:Enemy.Drawers>
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1100" ToY="50" DurationMs="2000" HoldMs="120000" />
+			<b:KeyFrame ToX="1410" ToY="50" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:GunBehaviorReference BulletTextureOverride="bullet3"
+		                        BulletTintOverride="{dx:Constant Orange}"
+		                        ReferenceName="AlternatingSpiralRTurret" />
+	</g:Enemy>
+
+	<g:Enemy x:Key="MiddleBoss" BaseTexture="tiki_mask" EventOnDeath="MiddleBossDied" Lives="260"
+	         R="40">
+		<g:Enemy.Drawers>
+			<d:HealthbarDrawer Width="400" Height="10"
+			                   BorderColor="{dx:Constant Lime}"
+			                   X="440" Y="680"
+			                   Color="{dx:Constant Red}" />
+		</g:Enemy.Drawers>
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1100" ToY="360" DurationMs="2000" HoldMs="240000" />
+			<b:KeyFrame ToX="1410" ToY="360" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:GunBehaviorReference BulletTextureOverride="arrow"
+		                        BulletTintOverride="{dx:Constant Lime}"
+		                        ReferenceName="MultiSpiralTurret" />
+		<b:GunBehaviorReference BulletTextureOverride="arrow"
+		                        BulletTintOverride="{dx:Constant Green}"
+		                        DelayMs="5000" ReferenceName="MultiSpiralRTurret" />
+		<b:GunBehaviorReference BulletTextureOverride="bullet2"
+		                        BulletTintOverride="{dx:Constant Teal}"
+		                        DelayMs="10000" ReferenceName="AimingTurret" />
+		<b:GunBehaviorReference BulletTextureOverride="bullet2" DelayMs="20000" ReferenceName="WingsTurret" />
+	</g:Enemy>
+
+</dx:Prototypes>

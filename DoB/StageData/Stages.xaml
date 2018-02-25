@@ -1,0 +1,132 @@
+﻿<dx:Stages xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:b="clr-namespace:DoB.Behaviors;assembly=DoB" xmlns:c="clr-namespace:DoB.Components;assembly=DoB" xmlns:d="clr-namespace:DoB.Drawers;assembly=DoB"
+           xmlns:dx="clr-namespace:DoB.Xaml;assembly=DoB" xmlns:g="clr-namespace:DoB.GameObjects;assembly=DoB"
+           PrototypePacks="{dx:PrototypesLoader Prototypes-Common;Prototypes-1;Prototypes-2;PrototypesRC-1}">
+
+    <c:Stage BackgroundTextures="Background_sil;Background_sil_buildings;Background_sil_foreground" EndsOnEvent="Stage2ZEnemy4Died">
+        <c:DebugControls />
+
+        <c:Segment>
+            <c:EnemySpawner CooldownMs="6000" Count="4" ReferenceName="Stage1RC-BEnemy1"
+		                X="1380" Y="50" />
+
+            <c:EnemySpawner CooldownMs="6000" Count="4" ReferenceName="Stage1RC-BEnemy2"
+		                X="1380" Y="360" />
+
+            <c:EnemySpawner CooldownMs="6000" Count="4" ReferenceName="Stage1RC-BEnemy3"
+		                X="1380" Y="670" />
+
+            <c:EnemySpawner CooldownMs="7000" Count="4" DelayMs="26000" ReferenceName="Stage1RC-ABEnemy1"
+		                X="1180" Y="-100" />
+
+            <c:EnemySpawner CooldownMs="7000" Count="4" DelayMs="26000" ReferenceName="Stage1RC-ABEnemy2"
+		                X="1180" Y="820" />
+            <c:EnemySpawner Count="1" DelayMs="54000" ReferenceName="Stage1RC-TopBoss" X="1380"
+		                Y="50" />
+
+            <c:EnemySpawner Count="1" DelayMs="54000" ReferenceName="Stage1RC-BottomBoss" X="1380"
+		                Y="670" />
+
+        </c:Segment>
+
+        <c:Segment WaitForEvent="{dx:Events Stage1RC-TopBossDied;Stage1RC-BottomBossDied}">
+            <c:EnemySpawner CooldownMs="6000" Count="4" ReferenceName="Stage1RC-BEnemy1B"
+		                X="1380" Y="50" />
+
+            <c:EnemySpawner CooldownMs="6000" Count="4" ReferenceName="Stage1RC-BEnemy2B"
+		                X="1380" Y="360" />
+
+            <c:EnemySpawner CooldownMs="6000" Count="4" ReferenceName="Stage1RC-BEnemy3B"
+		                X="1380" Y="670" />
+
+            <c:EnemySpawner CooldownMs="7000" Count="4" DelayMs="26000" ReferenceName="Stage1RC-ABEnemy1"
+		                X="1180" Y="-100" />
+
+            <c:EnemySpawner CooldownMs="7000" Count="4" DelayMs="26000" ReferenceName="Stage1RC-ABEnemy2"
+		                X="1180" Y="820" />
+
+            <c:EnemySpawner CooldownMs="7000" Count="2" DelayMs="40000" ReferenceName="Stage1RC-ABEnemy3"
+		                X="1180" Y="-100" />
+
+            <c:EnemySpawner CooldownMs="7000" Count="2" DelayMs="40000" ReferenceName="Stage1RC-ABEnemy4"
+		                X="1180" Y="820" />
+            <c:EnemySpawner Count="1" ReferenceName="Stage1RC-RingsBoss" DelayMs="54000" X="1100" Y="360" />
+            <c:EnemySpawner Count="1" ReferenceName="Stage1RC-FroggerBoss" WaitForEvent="Stage1RC-RingsBossDied" X="1100" Y="360" />
+            <c:EnemySpawner Count="1" ReferenceName="Stage2ZEnemy4" WaitForEvent="Stage1RC-FroggerBossDied"  X="1400" Y="360" />
+        </c:Segment>
+    </c:Stage>
+
+    <c:Stage BackgroundTexture="Background" EndsOnEvent="Stage2BBossDied">
+		<c:DebugControls />
+
+		<c:Segment>
+            <c:EnemySpawner Count="1" ReferenceName="Stage2ZEnemy0" X="1400" Y="360" />
+			<c:EnemySpawner Count="1" ReferenceName="Stage2ZEnemy1" WaitForEvent="Stage2ZEnemy0Died" X="1400" Y="360" />
+			<c:EnemySpawner Count="1" ReferenceName="Stage2ZEnemy2" WaitForEvent="Stage2ZEnemy1Died" X="1100"
+			                Y="360" />
+			<c:EnemySpawner Count="1" ReferenceName="Stage2ZEnemy3" WaitForEvent="Stage2ZEnemy2Died" X="1100"
+			                Y="360" />
+		</c:Segment>
+
+		<c:Segment WaitForEvent="Stage2ZEnemy3Died">
+			<c:EnemySpawner CooldownMs="4000" Count="5" DelayMs="4000" ReferenceName="Stage2ABossShell"
+			                RIncrement="8" X="1100" Y="360" />
+
+			<c:EnemySpawner Count="1" DelayMs="0" ReferenceName="Stage2ABoss" X="1100"
+			                Y="360" />
+		</c:Segment>
+
+		<c:Segment WaitForEvent="Stage2ABossDied">
+			<c:EnemySpawner CooldownMs="1500" Count="9" ReferenceName="Stage2BEnemy1" X="1380"
+			                Y="0" YIncrement="80" />
+
+			<c:EnemySpawner CooldownMs="1500" Count="5" DelayMs="4500" ReferenceName="Stage2BEnemy2"
+			                X="1380" Y="200" YIncrement="80" />
+
+			<c:EnemySpawner CooldownMs="1500" Count="1" DelayMs="15000" ReferenceName="Stage2BBoss"
+			                X="1400" Y="360" />
+		</c:Segment>
+	</c:Stage>
+
+    <c:Stage  BackgroundTexture="Background_castle" EndsOnEvent="MiddleBossDied">
+		<c:DebugControls />
+
+
+		<c:EnemySpawner CooldownMs="1500" Count="15" DelayMs="0" ReferenceName="StageAEnemy1"
+		                X="1380" Y="-9" />
+
+		<c:EnemySpawner CooldownMs="1500" Count="15" DelayMs="0" ReferenceName="StageAEnemy2"
+		                X="1380" Y="729" />
+
+		<c:EnemySpawner CooldownMs="4000" Count="10" DelayMs="7500" ReferenceName="StageABEnemy1"
+		                X="1180" Y="-100" />
+
+		<c:EnemySpawner CooldownMs="4000" Count="10" DelayMs="9500" ReferenceName="StageABEnemy2"
+		                X="1180" Y="820" />
+
+		<c:EnemySpawner CooldownMs="3000" Count="15" DelayMs="4000" ReferenceName="StageBEnemy1"
+		                X="1380" Y="50" />
+
+		<c:EnemySpawner CooldownMs="3000" Count="15" DelayMs="4000" ReferenceName="StageBEnemy2"
+		                X="1380" Y="360" />
+
+		<c:EnemySpawner CooldownMs="3000" Count="15" DelayMs="4000" ReferenceName="StageBEnemy3"
+		                X="1380" Y="670" />
+
+		<c:EnemySpawner CooldownMs="2200" Count="8" DelayMs="30000" ReferenceName="StageBCEnemy1"
+		                X="1380" Y="729" />
+
+		<c:EnemySpawner Count="1" DelayMs="40000" ReferenceName="TopBoss" X="1380"
+		                Y="50" />
+
+		<c:EnemySpawner Count="1" DelayMs="40000" ReferenceName="BottomBoss" X="1380"
+		                Y="670" />
+
+		<c:EnemySpawner Count="1" DelayMs="0" ReferenceName="MiddleBoss"
+		                WaitForEvent="{dx:Events TopBossDied;BottomBossDied}"
+		                X="1380" Y="360" />
+	</c:Stage>
+
+	<c:Stage BackgroundTexture="sky">
+		<!--  End credits =)  -->
+	</c:Stage>
+</dx:Stages>
