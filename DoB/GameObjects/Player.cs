@@ -34,7 +34,7 @@ namespace DoB.GameObjects
         public Player()
         {
             BaseTexture = "player_new";
-			R = 8 * textureScale;
+			R = 4 * textureScale;
             Behaviors.Add(controlBehavior);
             Behaviors.Add(new FramedMovementBehavior());
             Drawers.Add(manaDrawer);
@@ -174,8 +174,10 @@ namespace DoB.GameObjects
 		Random rnd = new Random();
 		public void Shoot()
 		{
-			var p = new PlayerBullet (IsPaybackActive ? 1400 : 700) { X = this.X + 20 * textureScale, Y = this.Y + 20 * textureScale + (100 * (IsPaybackActive ? rnd.NextDouble() - 0.5 : 0)) , R = 10, Tint = IsPaybackActive ? Color.White  : Color.White };
-			Game.Objects.Add( p );
-		}
-	}
+			var pMain = new PlayerBullet (IsPaybackActive ? 1400 : 700) { X = this.X + 90 * textureScale, Y = this.Y + (100 * (IsPaybackActive ? rnd.NextDouble() - 0.5 : 0)) , R = 10, Tint = IsPaybackActive ? Color.White  : Color.White };
+            Game.Objects.Add(pMain);
+            var pSide = new PlayerBullet(IsPaybackActive ? 1400 : 700) { X = this.X + 20 * textureScale, Y = this.Y + 28 * textureScale + (100 * (IsPaybackActive ? rnd.NextDouble() - 0.5 : 0)), R = 10, Tint = IsPaybackActive ? Color.White : Color.White };
+            Game.Objects.Add(pSide);
+        }
+    }
 }

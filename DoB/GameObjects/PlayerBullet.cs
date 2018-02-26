@@ -19,7 +19,7 @@ namespace DoB.GameObjects
 
         public override Microsoft.Xna.Framework.Rectangle GetDrawingRectangle()
         {
-            return new Rectangle { X=(int)this.X, Y=(int)this.Y, Width = 56, Height = 8};
+            return new Rectangle { X=(int)this.X, Y=(int)this.Y - 4, Width = 56, Height = 8};
         }
     }
 }
