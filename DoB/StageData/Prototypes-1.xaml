@@ -132,7 +132,7 @@
 	</g:Enemy>
 
 	<g:Enemy x:Key="Stage2ZEnemy3" BaseTexture="wasp" EventOnDeath="Stage2ZEnemy3Died" Lives="120"
-	         R="40">
+	         R="80">
 		<g:Enemy.Drawers>
 			<d:HealthbarDrawer Width="400" Height="10"
 			                   BorderColor="{dx:Constant Magenta}"
