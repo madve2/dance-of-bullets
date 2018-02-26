@@ -55,7 +55,7 @@
         </c:Segment>
     </c:Stage>
 
-    <c:Stage BackgroundTexture="Background" EndsOnEvent="Stage2BBossDied">
+    <c:Stage BackgroundTextures="Background_sil2;Background_sil_foreground2" EndsOnEvent="Stage2BBossDied">
 		<c:DebugControls />
 
 		<c:Segment>

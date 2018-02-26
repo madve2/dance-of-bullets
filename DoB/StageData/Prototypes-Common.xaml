@@ -71,7 +71,7 @@
 		</g:MultiBullet>
 	</b:TurningTurretBehavior>
 
-	<b:AimingTurretBehavior x:Key="AimingTurret" Capacity="12" GunCooldownMs="30" NeedsReloadFirst="True"
+	<b:AimingTurretBehavior x:Key="AimingTurret" Capacity="6" GunCooldownMs="30" NeedsReloadFirst="True"
 	                        ReloadDurationMs="1000">
 		<g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.5" R="7"
 		          Tint="{dx:Constant Green}">

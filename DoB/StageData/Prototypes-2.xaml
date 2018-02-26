@@ -31,7 +31,7 @@
 		<b:GunBehaviorReference ReferenceName="SpinningTurret" />
 	</g:Enemy>
 
-	<g:Enemy x:Key="StageBEnemy1" BaseTexture="bird" Lives="12" R="20">
+	<g:Enemy x:Key="StageBEnemy1" BaseTexture="wasp" Lives="12" R="30">
 		<b:KeyFramedMovementBehavior EasingPow="2">
 			<b:KeyFrame ToX="1100" ToY="50" DurationMs="2000" HoldMs="1500" />
 			<b:KeyFrame ToX="1410" ToY="50" DurationMs="2000" />
@@ -40,7 +40,7 @@
 		<b:GunBehaviorReference ReferenceName="AimingTurret" />
 	</g:Enemy>
 
-	<g:Enemy x:Key="StageBEnemy2" BaseTexture="wasp" Lives="12" R="20">
+	<g:Enemy x:Key="StageBEnemy2" BaseTexture="wasp" Lives="12" R="30">
 		<b:KeyFramedMovementBehavior EasingPow="2">
 			<b:KeyFrame ToX="1100" ToY="360" DurationMs="2000" HoldMs="1500" />
 			<b:KeyFrame ToX="1410" ToY="360" DurationMs="2000" />
@@ -49,7 +49,7 @@
 		<b:GunBehaviorReference ReferenceName="AimingTurret" />
 	</g:Enemy>
 
-    <g:Enemy x:Key="StageBEnemy3" BaseTexture="wasp" Lives="12" R="20">
+    <g:Enemy x:Key="StageBEnemy3" BaseTexture="wasp" Lives="12" R="30">
 		<b:KeyFramedMovementBehavior EasingPow="2">
 			<b:KeyFrame ToX="1100" ToY="670" DurationMs="2000" HoldMs="1500" />
 			<b:KeyFrame ToX="1410" ToY="670" DurationMs="2000" />
@@ -58,18 +58,18 @@
 		<b:GunBehaviorReference ReferenceName="AimingTurret" />
 	</g:Enemy>
 
-    <g:Enemy x:Key="StageBCEnemy1" BaseTexture="wasp" Lives="450" R="30">
+    <g:Enemy x:Key="StageBCEnemy1" BaseTexture="bee" Lives="450" R="40">
 		<b:XYMovementBehavior Vx="-400" />
 		<b:TurningTurretBehavior Alpha="{dx:Degrees -90}" GunCooldownMs="120">
 			<g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.5" R="10"
-			          Tint="{dx:Constant Orange}">
+			          Tint="{dx:Constant Magenta}">
 				<b:RadialMovementBehavior Vr="200" />
 			</g:Bullet>
 		</b:TurningTurretBehavior>
 	</g:Enemy>
 
     <g:Enemy x:Key="BottomBoss" BaseTexture="wasp" EventOnDeath="BottomBossDied" Lives="50"
-	         R="30">
+	         R="60">
 		<g:Enemy.Drawers>
 			<d:HealthbarDrawer Width="400" Height="10"
 			                   BorderColor="{dx:Constant Yellow}"
@@ -86,7 +86,7 @@
 	</g:Enemy>
 
     <g:Enemy x:Key="TopBoss" BaseTexture="wasp" EventOnDeath="TopBossDied" Lives="50"
-	         R="30">
+	         R="60">
 		<g:Enemy.Drawers>
 			<d:HealthbarDrawer Width="400" Height="10"
 			                   BorderColor="{dx:Constant Orange}"
@@ -103,7 +103,7 @@
 	</g:Enemy>
 
 	<g:Enemy x:Key="MiddleBoss" BaseTexture="tiki_mask" EventOnDeath="MiddleBossDied" Lives="260"
-	         R="40">
+	         R="80">
 		<g:Enemy.Drawers>
 			<d:HealthbarDrawer Width="400" Height="10"
 			                   BorderColor="{dx:Constant Lime}"

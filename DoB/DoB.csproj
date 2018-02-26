@@ -125,7 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\arrow.png" />
-    <Content Include="Content\Background.png" />
     <Content Include="Content\background_castle.png" />
     <Content Include="Content\Background_sil.png" />
     <Content Include="Content\Background_sil_buildings.png" />

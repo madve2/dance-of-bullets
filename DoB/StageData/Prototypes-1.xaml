@@ -67,7 +67,7 @@
     </g:Enemy>
 
     <g:Enemy x:Key="Stage2ZEnemy0" BaseTexture="wasp" EventOnDeath="Stage2ZEnemy0Died" Lives="180"
-	         R="40">
+	         R="80">
 		<g:Enemy.Drawers>
 			<d:HealthbarDrawer Width="400" Height="10"
 			                   BorderColor="{dx:Constant Magenta}"
@@ -107,7 +107,7 @@
 	</g:Enemy>
 
 	<g:Enemy x:Key="Stage2ZEnemy1" BaseTexture="wasp" EventOnDeath="Stage2ZEnemy1Died" Lives="120"
-	         R="40">
+	         R="80">
 		<g:Enemy.Drawers>
 			<d:HealthbarDrawer Width="400" Height="10"
 			                   BorderColor="{dx:Constant Magenta}"
@@ -121,7 +121,7 @@
 	</g:Enemy>
 
 	<g:Enemy x:Key="Stage2ZEnemy2" BaseTexture="wasp" EventOnDeath="Stage2ZEnemy2Died" Lives="120"
-	         R="40">
+	         R="80">
 		<g:Enemy.Drawers>
 			<d:HealthbarDrawer Width="400" Height="10"
 			                   BorderColor="{dx:Constant Magenta}"
@@ -161,12 +161,12 @@
 	</g:Enemy>
 
 	<g:Enemy x:Key="Stage2BBoss" BaseTexture="wasp" EventOnDeath="Stage2BBossDied" Lives="100"
-	         R="25"
+	         R="60"
 	         Tint="{dx:Constant Blue}">
 		<g:Enemy.Drawers>
 			<d:HealthbarDrawer Width="400" Height="10"
 			                   BorderColor="{dx:Constant Blue}"
-			                   X="440" Y="680"
+			                   X="440" Y="710"
 			                   Color="{dx:Constant Red}" />
 		</g:Enemy.Drawers>
 		<b:KeyFramedMovementBehavior EasingPow="2">
