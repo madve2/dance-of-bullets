@@ -68,6 +68,7 @@ namespace DoB
 			DrawingRectangle = new Rectangle( 0, 0, (int)cfg["ResolutionW"], (int)cfg["ResolutionH"] );
 			graphics.PreferredBackBufferWidth = DrawingRectangle.Width;
 			graphics.PreferredBackBufferHeight = DrawingRectangle.Height;
+            graphics.IsFullScreen = (bool)cfg["IsFullScreen"];
 			graphics.ApplyChanges();
 		}
 
@@ -162,7 +163,7 @@ namespace DoB
 		protected override void Update( GameTime gameTime )
 		{
 			// Allows the game to exit
-			if( GamePad.GetState( PlayerIndex.One ).Buttons.Back == ButtonState.Pressed )
+			if( GamePad.GetState( PlayerIndex.One ).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape) )
 				this.Exit();
 
 			Objects.RemoveAll( c => c.IsMarkedForRemoval );
