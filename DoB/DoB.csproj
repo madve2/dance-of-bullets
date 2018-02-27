@@ -143,6 +143,9 @@
     <Content Include="Content\wasp.png" />
     <Content Include="Content\white.png" />
     <Content Include="Icon.ico" />
+    <Content Include="ReadMe.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
