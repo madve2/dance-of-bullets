@@ -48,6 +48,29 @@ Some pointers until I write some proper documentation:
 - `Prototypes-1.xaml`, `Prototypes-2.xaml`​  and `PrototypesRC-1.xaml`​ contain _Enemy_ definitions, referenced by the _EnemySpawners_ in `Stages.xaml`. It governs how they move, what they look like, how though they are etc. Their shooting patterns are, however, a bit more complicated, so those usually appear in the last file, called...
 - `Prototypes-Common.xaml`: it contains various _constants_ (e.g. colors), _behaviors_ (which in this case are mostly bullet pattern definitions referenced by the enemies) and _bullet_ definitions for the bullet patterns. (Essentially, a bullet definition specifies how a bullet moves once it's been shot, while a `*TurretBehavior` defines how and when exactly should the shooting happen.)
 
+Here's an example pattern definition
+
+```
+<b:TurningTurretBehavior x:Key="SpiralSlicesTurret"
+                         Alpha="{dx:Degrees 180}"
+                         GunCooldownMs="80"
+                         TurnAfterShoot="{dx:Degrees -16}">
+    <g:MultiBullet BaseTexture="bullet1"
+                   CollisionBoxScale="0.4"
+                   Count="5"
+                   DegIncrement="{dx:Degrees 3}"
+                   DuplicateCooldownMs="80"
+                   R="8">
+        <b:RadialMovementBehavior Vr="200" />
+        <b:CircularMovementBehavior Aper="-10" Vper="-10" />
+    </g:MultiBullet>
+</b:TurningTurretBehavior>
+```
+
+And this is the result
+
+![Bullet pattern example](readme/pattern-example.gif)
+
 There's no significance to the naming of these files other than `Stages.xaml`. You can add new files and put new enemies, behaviors, bullets etc. in them as long as you reference them in the correct order in the _PrototypePacks_ attribute of the root element of `Stages.xaml`
 
 ## Building the game
