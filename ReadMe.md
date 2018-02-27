@@ -75,4 +75,6 @@ There's no significance to the naming of these files other than `Stages.xaml`. Y
 
 ## Building the game
 
-All you need is _Visual Studio 2017 Community_ and _MonoGame 3.6_
+You don't need to rebuild the game if you only change the XAML files – restarting the game is enough to apply the changes.
+
+If you want to clone the whole repo and build everything from source, then you'll need _Visual Studio 2017 Community_ and _MonoGame 3.6_.
