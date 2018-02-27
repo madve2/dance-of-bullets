@@ -38,6 +38,18 @@ Programmer things
 
 Download the current alpha and take it for a spin from Itch, available in a few days! You can find how-to-play instructions there.
 
+## Making your own levels
+
+While I've yet to make a proper documentation for the level format of Dance of Bullets, open the files in the StageData folder with your favorite text editor and start tweaking! You will be able to add your own levels, enemies, bullet patterns and bosses in no time! 
+
+Some pointers until I write some proper documentation:
+
+- `Stages.xaml` is the main file the game loads. It contains _Stages_ (essentially, the levels) which will be loaded in the order they are in the file. A stage consists of multiple _Segments_, each with its own boss(es). Segments contain _EnemySpawners_, which orchestrate the timing of the appearance of the various enemies on the level / segment.
+- `Prototypes-1.xaml`, `Prototypes-2.xaml`​  and `PrototypesRC-1.xaml`​ contain _Enemy_ definitions, referenced by the _EnemySpawners_ in `Stages.xaml`. It governs how they move, what they look like, how though they are etc. Their shooting patterns are, however, a bit more complicated, so those usually appear in the last file, called...
+- `Prototypes-Common.xaml`: it contains various _constants_ (e.g. colors), _behaviors_ (which in this case are mostly bullet pattern definitions referenced by the enemies) and _bullet_ definitions for the bullet patterns. (Essentially, a bullet definition specifies how a bullet moves once it's been shot, while a `*TurretBehavior` defines how and when exactly should the shooting happen.)
+
+There's no significance to the naming of these files other than `Stages.xaml`. You can add new files and put new enemies, behaviors, bullets etc. in them as long as you reference them in the correct order in the _PrototypePacks_ attribute of the root element of `Stages.xaml`
+
 ## Building the game
 
 All you need is Visual Studio 2017 Community and MonoGame 3.6
