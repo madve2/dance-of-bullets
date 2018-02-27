@@ -33,13 +33,14 @@ namespace DoB.Behaviors
         {
             base.UpdateOverride(gameTime, gameObject);
             var keys = Keyboard.GetState().GetPressedKeys();
+            var player = ((Player)gameObject);
             gunCooldown.Update(gameTime.ElapsedGameTime.TotalMilliseconds);
-            if (keys.Contains(Keys.C) || keys.Contains(Keys.Space))
+            if (keys.Contains(Keys.C) || keys.Contains(Keys.Space) || player.IsPaybackActive)
             {
                 if (gunCooldown.IsElapsed)
                 {
-					( (Player)gameObject ).Shoot();
-                    gunCooldown.Reset( ( (Player)gameObject ).IsPaybackActive ? 10 : 120);
+					((Player)gameObject).Shoot();
+                    gunCooldown.Reset(player.IsPaybackActive ? 10 : 120);
                 }
             }
             if (keys.Contains(Keys.Up))
@@ -62,10 +63,10 @@ namespace DoB.Behaviors
             {
                 if (lockMana)
                     return;
-                if (((Player)gameObject).IsManaActive)
-                    ((Player)gameObject).StopMana();
+                if (player.IsManaActive)
+                    player.StopMana();
                 else
-                    ((Player)gameObject).StartMana();
+                    player.StartMana();
 
                 lockMana = true;
             }
@@ -73,9 +74,9 @@ namespace DoB.Behaviors
             {
                 lockMana = false;
             }
-			if( keys.Contains( Keys.Y ))
+			if( keys.Contains(Keys.Y) || keys.Contains (Keys.Z))
 			{
-				( (Player)gameObject ).ActivatePayback();
+				player.ActivatePayback();
 			}
             if (keys.Contains(Keys.P) || keys.Contains(Keys.B))
             {
