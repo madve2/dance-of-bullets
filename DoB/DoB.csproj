@@ -98,6 +98,7 @@
     <Compile Include="Utility\EventCombinator.cs" />
     <Compile Include="Utility\GameSpeedManager.cs" />
     <Compile Include="Utility\Health.cs" />
+    <Compile Include="Utility\ScoreKeeper.cs" />
     <Compile Include="Xaml\Constants\ColorConstant.cs" />
     <Compile Include="Xaml\Constants\Constant.cs" />
     <Compile Include="Xaml\Constants\ConstantBase.cs" />

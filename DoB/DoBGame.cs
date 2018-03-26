@@ -274,9 +274,9 @@ namespace DoB
 				Objects[i].Draw( gameTime, spriteBatch );
 			}
 
-			spriteBatch.DrawString( font, Player.Health.Amount.ToString(), new Vector2( 10, 3 ), Color.White );
+            spriteBatch.DrawString( font, $"Health: {Player.Health.Amount} | Multiplier: {GameSpeedManager.DifficultyMultiplier} | Score: {ScoreKeeper.Score}", new Vector2( 650, 6 ), Color.White );
 
-			if( !stageTransitionEffectCooldown.IsElapsed )
+            if ( !stageTransitionEffectCooldown.IsElapsed )
 			{
 				spriteBatch.Draw( stageTransitionEffect, GameplayRectangle, Color.FromNonPremultiplied( 255, 255, 255, (int)( 255 * ( 1 - stageTransitionEffectCooldown.Progress ) ) ) );
 			}

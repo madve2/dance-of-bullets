@@ -24,10 +24,12 @@ namespace DoB.GameObjects
 
         private PlayerControlBehavior controlBehavior = new PlayerControlBehavior();
         private Cooldown damageCooldown = null;
-        private RangeDrawer manaDrawer = new RangeDrawer() { X = 30, Y = 10, Width = 300, Height = 10, Color = Color.FromNonPremultiplied(0, 19, 127, 255), BorderColor = Color.Black };
+        private Cooldown increaseDifficultyCooldown = null;
+        private double increaseDifficultyDelay = 20000;
+        private RangeDrawer manaDrawer = new RangeDrawer() { X = 10, Y = 10, Width = 300, Height = 10, Color = Color.FromNonPremultiplied(0, 19, 127, 255), BorderColor = Color.Black };
         private double manaDrainSpeed = 10; //Note: this is also affected by the slowdown
         private double manaRegainSpeed = 1;
-		private RangeDrawer paybackDrawer = new RangeDrawer() { X = 360, Y = 10, Width = 300, Height = 10, Color = Color.FromNonPremultiplied( 127, 19, 19, 255 ), BorderColor = Color.Black };
+		private RangeDrawer paybackDrawer = new RangeDrawer() { X = 340, Y = 10, Width = 300, Height = 10, Color = Color.FromNonPremultiplied( 127, 19, 19, 255 ), BorderColor = Color.Black };
 		private double paybackDrainSpeed = 250;
 		private double paybackRegainSpeed = 10;
 
@@ -39,7 +41,7 @@ namespace DoB.GameObjects
             Behaviors.Add(new FramedMovementBehavior());
             Drawers.Add(manaDrawer);
 			Drawers.Add( paybackDrawer );
-            Health = new Health(this, 10);
+            Health = new Health(this, 9);
             Mana = new Consumable(20);
 			Payback = new Consumable(1000);
             IsFriendly = true;
@@ -62,6 +64,11 @@ namespace DoB.GameObjects
             {
                 damageCooldown = new Cooldown();
             }
+            if (increaseDifficultyCooldown == null)
+            {
+                increaseDifficultyCooldown = new Cooldown();
+                increaseDifficultyCooldown.Reset(increaseDifficultyDelay);
+            }
         }
 
         public override void Update(GameTime gameTime)
@@ -74,7 +81,14 @@ namespace DoB.GameObjects
                 Tint = Color.White;
             }
 
-			UpdateMana( gameTime );
+            increaseDifficultyCooldown.Update(gameTime.ElapsedGameTime.TotalMilliseconds);
+            if (increaseDifficultyCooldown.IsElapsed)
+            {
+                GameSpeedManager.IncreaseDifficulty();
+                increaseDifficultyCooldown.Reset(increaseDifficultyDelay);
+            }
+
+            UpdateMana( gameTime );
 			UpdatePayback( gameTime );
         }
 
@@ -158,6 +172,8 @@ namespace DoB.GameObjects
                 {
                     Health.Hit();
                     damageCooldown.Reset(3000);
+                    GameSpeedManager.ReduceDifficulty();
+                    increaseDifficultyCooldown.Reset(increaseDifficultyDelay);
                     Tint = Color.FromNonPremultiplied(255, 255,255, 125);
                 }
             }
