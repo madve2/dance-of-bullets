@@ -52,9 +52,7 @@
     <Compile Include="Behaviors\Guns\TurningTurretBehavior.cs" />
     <Compile Include="Behaviors\Guns\TurretBehaviorBase.cs" />
     <Compile Include="Behaviors\Meta\BehaviorBag.cs" />
-    <Compile Include="Behaviors\Meta\BehaviorMetadata.cs" />
     <Compile Include="Behaviors\Meta\BehaviorReference.cs" />
-    <Compile Include="Behaviors\Meta\BehaviorSequence.cs" />
     <Compile Include="Behaviors\Meta\GunBehaviorReference.cs" />
     <Compile Include="Behaviors\Meta\NopBehavior.cs" />
     <Compile Include="Behaviors\Movement\CircularMovementBehavior.cs" />
@@ -98,6 +96,7 @@
     <Compile Include="Utility\EventCombinator.cs" />
     <Compile Include="Utility\GameSpeedManager.cs" />
     <Compile Include="Utility\Health.cs" />
+    <Compile Include="Utility\ScoreKeeper.cs" />
     <Compile Include="Xaml\Constants\ColorConstant.cs" />
     <Compile Include="Xaml\Constants\Constant.cs" />
     <Compile Include="Xaml\Constants\ConstantBase.cs" />

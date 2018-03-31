@@ -68,7 +68,7 @@ namespace DoB
 			DrawingRectangle = new Rectangle( 0, 0, (int)cfg["ResolutionW"], (int)cfg["ResolutionH"] );
 			graphics.PreferredBackBufferWidth = DrawingRectangle.Width;
 			graphics.PreferredBackBufferHeight = DrawingRectangle.Height;
-            graphics.IsFullScreen = (bool)cfg["IsFullScreen"];
+			graphics.IsFullScreen = (bool)cfg["IsFullScreen"];
 			graphics.ApplyChanges();
 		}
 
@@ -102,30 +102,30 @@ namespace DoB
 			StageIndex = 0;
 			this.ShmupComponents.Add( Stages[StageIndex] );
 
-            LoadStageTextures();
+			LoadStageTextures();
 
 			Player = new Player { X = 300, Y = 360 };
 			Objects.Add( Player );
 		}
 
-        private void LoadStageTextures()
-        {
-            if (Stages[StageIndex].BackgroundTextures != null)
-            {
-                bgTextures = new List<Texture2D>();
-                bgX = new List<double>();
-                for (int i = 0; i < Stages[StageIndex].BackgroundTextureArray.Length; i++)
-                {
-                    bgTextures.Add(Content.Load<Texture2D>(Stages[StageIndex].BackgroundTextureArray[i]));
-                    bgX.Add(0);
-                }
-            }
-            else
-            {
-                bgTextures = new List<Texture2D> { Content.Load<Texture2D>(Stages[StageIndex].BackgroundTexture) };
-                bgX = new List<double> { 0 };
-            }
-        }
+		private void LoadStageTextures()
+		{
+			if (Stages[StageIndex].BackgroundTextures != null)
+			{
+				bgTextures = new List<Texture2D>();
+				bgX = new List<double>();
+				for (int i = 0; i < Stages[StageIndex].BackgroundTextureArray.Length; i++)
+				{
+					bgTextures.Add(Content.Load<Texture2D>(Stages[StageIndex].BackgroundTextureArray[i]));
+					bgX.Add(0);
+				}
+			}
+			else
+			{
+				bgTextures = new List<Texture2D> { Content.Load<Texture2D>(Stages[StageIndex].BackgroundTexture) };
+				bgX = new List<double> { 0 };
+			}
+		}
 
 		private void InitializeRenderTarget()
 		{
@@ -165,6 +165,13 @@ namespace DoB
 			// Allows the game to exit
 			if( GamePad.GetState( PlayerIndex.One ).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape) )
 				this.Exit();
+
+			if (Keyboard.GetState().IsKeyDown(Keys.LeftAlt) && Keyboard.GetState().IsKeyDown(Keys.Enter))
+			{
+				graphics.IsFullScreen = !graphics.IsFullScreen;
+				graphics.ApplyChanges();
+			}
+				
 
 			Objects.RemoveAll( c => c.IsMarkedForRemoval );
 
@@ -233,7 +240,7 @@ namespace DoB
 			{
 				EventBroker.IsEnabled = true;
 				ShmupComponents.Add( Stages[StageIndex] );
-                LoadStageTextures();
+				LoadStageTextures();
 				stageTransitionEffectCooldown.Reset( 5000 );
 				isStageEnding = false;
 			}
@@ -259,24 +266,24 @@ namespace DoB
 			GraphicsDevice.SetRenderTarget( renderTarget );
 			spriteBatch.Begin();
 
-            if (!debug_showBulletPaths)
-            {
-                for (int i = 0; i < bgTextures.Count; i++)
-                {
-                    var x = bgX[i];
-                    DrawBackground(gameTime, bgTextures[i], -600 - i * 150, 1601, ref x);
-                    bgX[i] = x;
-                }
-            }
+			if (!debug_showBulletPaths)
+			{
+				for (int i = 0; i < bgTextures.Count; i++)
+				{
+					var x = bgX[i];
+					DrawBackground(gameTime, bgTextures[i], -600 - i * 150, 1601, ref x);
+					bgX[i] = x;
+				}
+			}
 
 			for( int i = 0; i < Objects.Count; i++ )
 			{
 				Objects[i].Draw( gameTime, spriteBatch );
 			}
 
-			spriteBatch.DrawString( font, Player.Health.Amount.ToString(), new Vector2( 10, 3 ), Color.White );
+			spriteBatch.DrawString( font, $"Health: {Player.Health.Amount} | Multiplier: {GameSpeedManager.DifficultyMultiplier.ToString("N2", CultureInfo.InvariantCulture)}x | Score: {ScoreKeeper.Score.ToString("N0", CultureInfo.InvariantCulture)}", new Vector2( 650, 6 ), Color.White );
 
-			if( !stageTransitionEffectCooldown.IsElapsed )
+			if ( !stageTransitionEffectCooldown.IsElapsed )
 			{
 				spriteBatch.Draw( stageTransitionEffect, GameplayRectangle, Color.FromNonPremultiplied( 255, 255, 255, (int)( 255 * ( 1 - stageTransitionEffectCooldown.Progress ) ) ) );
 			}
@@ -286,7 +293,7 @@ namespace DoB
 		}
 
 		List<Texture2D> bgTextures = null;
-        List<double> bgX = null;
+		List<double> bgX = null;
 
 		private void DrawBackground( GameTime gameTime, Texture2D bgTexture, double v, int textureWidth, ref double x, int y = 0 )
 		{

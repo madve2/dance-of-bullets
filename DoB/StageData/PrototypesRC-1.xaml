@@ -1,229 +1,229 @@
 ﻿<dx:Prototypes xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:b="clr-namespace:DoB.Behaviors;assembly=DoB" xmlns:d="clr-namespace:DoB.Drawers;assembly=DoB" xmlns:dx="clr-namespace:DoB.Xaml;assembly=DoB"
-               xmlns:g="clr-namespace:DoB.GameObjects;assembly=DoB">
+			   xmlns:g="clr-namespace:DoB.GameObjects;assembly=DoB">
 
-    <!-- LineDown -->
-    <g:Enemy x:Key="Stage1RC-AEnemy1" BaseTexture="tiki_mask" Lives="450" R="40">
-        <b:XYMovementBehavior Vx="-300" />
-        <b:DieOffScreenBehavior Width="1400" Height="800" X="0" Y="-100" />
-        <b:GunBehaviorReference ReferenceName="LineDownTurret" />
-    </g:Enemy>
+	<!-- LineDown -->
+	<g:Enemy x:Key="Stage1RC-AEnemy1" BaseTexture="tiki_mask" Lives="450" R="40">
+		<b:XYMovementBehavior Vx="-300" />
+		<b:DieOffScreenBehavior Width="1400" Height="800" X="0" Y="-100" />
+		<b:GunBehaviorReference ReferenceName="LineDownTurret" />
+	</g:Enemy>
 
-    <g:Enemy x:Key="Stage1RC-AEnemy2" BaseTexture="tiki_mask" Lives="450" R="40">
-        <b:XYMovementBehavior Vx="-300" />
-        <b:DieOffScreenBehavior Width="1400" Height="800" X="0" Y="-100" />
-        <b:GunBehaviorReference ReferenceName="LineUpTurret" />
-    </g:Enemy>
+	<g:Enemy x:Key="Stage1RC-AEnemy2" BaseTexture="tiki_mask" Lives="450" R="40">
+		<b:XYMovementBehavior Vx="-300" />
+		<b:DieOffScreenBehavior Width="1400" Height="800" X="0" Y="-100" />
+		<b:GunBehaviorReference ReferenceName="LineUpTurret" />
+	</g:Enemy>
 
-    <!-- bee -->
-    <g:Enemy x:Key="Stage1RC-ABEnemy2" BaseTexture="bee" Lives="8" R="40">
-        <b:KeyFramedMovementBehavior EasingPow="2">
-            <b:KeyFrame ToX="1000" ToY="430" DurationMs="2000" HoldMs="3500" />
-            <b:KeyFrame ToX="-100" ToY="100" DurationMs="2000" />
-        </b:KeyFramedMovementBehavior>
-        <b:DieOffScreenBehavior Width="1400" Height="1000" X="0" Y="-100" />
-        <b:GunBehaviorReference ReferenceName="SpinningTurret" />
-    </g:Enemy>
+	<!-- bee -->
+	<g:Enemy x:Key="Stage1RC-ABEnemy2" BaseTexture="bee" Lives="8" R="40">
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1000" ToY="430" DurationMs="2000" HoldMs="3500" />
+			<b:KeyFrame ToX="-100" ToY="100" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="1000" X="0" Y="-100" />
+		<b:GunBehaviorReference ReferenceName="SpinningTurret" />
+	</g:Enemy>
 
-    <g:Enemy x:Key="Stage1RC-ABEnemy1" BaseTexture="bee" Lives="8" R="40">
-        <b:KeyFramedMovementBehavior EasingPow="2">
-            <b:KeyFrame ToX="1000" ToY="290" DurationMs="2000" HoldMs="3500" />
-            <b:KeyFrame ToX="-100" ToY="100" DurationMs="2000" />
-        </b:KeyFramedMovementBehavior>
-        <b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
-        <b:GunBehaviorReference ReferenceName="SpinningTurret" />
-    </g:Enemy>
+	<g:Enemy x:Key="Stage1RC-ABEnemy1" BaseTexture="bee" Lives="8" R="40">
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1000" ToY="290" DurationMs="2000" HoldMs="3500" />
+			<b:KeyFrame ToX="-100" ToY="100" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
+		<b:GunBehaviorReference ReferenceName="SpinningTurret" />
+	</g:Enemy>
 
-    <g:Enemy x:Key="Stage1RC-ABEnemy3" BaseTexture="bee" Lives="8" R="40">
-        <b:KeyFramedMovementBehavior EasingPow="2">
-            <b:KeyFrame ToX="1000" ToY="190" DurationMs="2000" HoldMs="3500" />
-            <b:KeyFrame ToX="-100" ToY="100" DurationMs="2000" />
-        </b:KeyFramedMovementBehavior>
-        <b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
-        <b:GunBehaviorReference ReferenceName="SpinningTurret" BulletTintOverride="{dx:Constant Yellow}" />
-    </g:Enemy>
+	<g:Enemy x:Key="Stage1RC-ABEnemy3" BaseTexture="bee" Lives="8" R="40">
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1000" ToY="190" DurationMs="2000" HoldMs="3500" />
+			<b:KeyFrame ToX="-100" ToY="100" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
+		<b:GunBehaviorReference ReferenceName="SpinningTurret" BulletTintOverride="{dx:Constant Yellow}" />
+	</g:Enemy>
 
-    <g:Enemy x:Key="Stage1RC-ABEnemy4" BaseTexture="bee" Lives="8" R="40">
-        <b:KeyFramedMovementBehavior EasingPow="2">
-            <b:KeyFrame ToX="1000" ToY="530" DurationMs="2000" HoldMs="3500" />
-            <b:KeyFrame ToX="-100" ToY="100" DurationMs="2000" />
-        </b:KeyFramedMovementBehavior>
-        <b:DieOffScreenBehavior Width="1400" Height="1000" X="0" Y="-100" />
-        <b:GunBehaviorReference ReferenceName="SpinningTurret" BulletTintOverride="{dx:Constant Yellow}" />
-    </g:Enemy>
+	<g:Enemy x:Key="Stage1RC-ABEnemy4" BaseTexture="bee" Lives="8" R="40">
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1000" ToY="530" DurationMs="2000" HoldMs="3500" />
+			<b:KeyFrame ToX="-100" ToY="100" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="1000" X="0" Y="-100" />
+		<b:GunBehaviorReference ReferenceName="SpinningTurret" BulletTintOverride="{dx:Constant Yellow}" />
+	</g:Enemy>
 
-    <!-- Aiming -->
-    <dx:DoubleConstant Value="60" x:Key="Stage1RC-BEnemyR" />
-    <g:Enemy x:Key="Stage1RC-BEnemy1" BaseTexture="bird" Lives="5" R="{dx:Constant Stage1RC-BEnemyR}">
-        <b:KeyFramedMovementBehavior EasingPow="2">
-            <b:KeyFrame ToX="1100" ToY="50" DurationMs="2000" HoldMs="3500" />
-            <b:KeyFrame ToX="1410" ToY="50" DurationMs="2000" />
-        </b:KeyFramedMovementBehavior>
-        <b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
-        <b:GunBehaviorReference DelayMs="1000" ReferenceName="AimingTurret" />
-    </g:Enemy>
+	<!-- Aiming -->
+	<dx:DoubleConstant Value="60" x:Key="Stage1RC-BEnemyR" />
+	<g:Enemy x:Key="Stage1RC-BEnemy1" BaseTexture="bird" Lives="5" R="{dx:Constant Stage1RC-BEnemyR}">
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1100" ToY="50" DurationMs="2000" HoldMs="3500" />
+			<b:KeyFrame ToX="1410" ToY="50" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
+		<b:GunBehaviorReference DelayMs="1000" ReferenceName="AimingTurret" />
+	</g:Enemy>
 
-    <g:Enemy x:Key="Stage1RC-BEnemy2" BaseTexture="bird" Lives="5" R="{dx:Constant Stage1RC-BEnemyR}">
-        <b:KeyFramedMovementBehavior EasingPow="2">
-            <b:KeyFrame ToX="1100" ToY="360" DurationMs="2000" HoldMs="3500" />
-            <b:KeyFrame ToX="1410" ToY="360" DurationMs="2000" />
-        </b:KeyFramedMovementBehavior>
-        <b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
-        <b:GunBehaviorReference DelayMs="1000" ReferenceName="AimingTurret" />
-    </g:Enemy>
+	<g:Enemy x:Key="Stage1RC-BEnemy2" BaseTexture="bird" Lives="5" R="{dx:Constant Stage1RC-BEnemyR}">
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1100" ToY="360" DurationMs="2000" HoldMs="3500" />
+			<b:KeyFrame ToX="1410" ToY="360" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
+		<b:GunBehaviorReference DelayMs="1000" ReferenceName="AimingTurret" />
+	</g:Enemy>
 
-    <g:Enemy x:Key="Stage1RC-BEnemy3" BaseTexture="bird" Lives="5" R="{dx:Constant Stage1RC-BEnemyR}">
-        <b:KeyFramedMovementBehavior EasingPow="2">
-            <b:KeyFrame ToX="1100" ToY="670" DurationMs="2000" HoldMs="3500" />
-            <b:KeyFrame ToX="1410" ToY="670" DurationMs="2000" />
-        </b:KeyFramedMovementBehavior>
-        <b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
-        <b:GunBehaviorReference DelayMs="1000" ReferenceName="AimingTurret" />
-    </g:Enemy>
+	<g:Enemy x:Key="Stage1RC-BEnemy3" BaseTexture="bird" Lives="5" R="{dx:Constant Stage1RC-BEnemyR}">
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1100" ToY="670" DurationMs="2000" HoldMs="3500" />
+			<b:KeyFrame ToX="1410" ToY="670" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
+		<b:GunBehaviorReference DelayMs="1000" ReferenceName="AimingTurret" />
+	</g:Enemy>
 
-    <!-- Aiming-B -->
-    <g:Enemy x:Key="Stage1RC-BEnemy1B" BaseTexture="bird" Lives="5" R="{dx:Constant Stage1RC-BEnemyR}">
-        <b:KeyFramedMovementBehavior EasingPow="2">
-            <b:KeyFrame ToX="1100" ToY="50" DurationMs="2000" HoldMs="3500" />
-            <b:KeyFrame ToX="1410" ToY="50" DurationMs="2000" />
-        </b:KeyFramedMovementBehavior>
-        <b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
-        <b:GunBehaviorReference DelayMs="1000" ReferenceName="AimingTurretB" />
-    </g:Enemy>
+	<!-- Aiming-B -->
+	<g:Enemy x:Key="Stage1RC-BEnemy1B" BaseTexture="bird" Lives="5" R="{dx:Constant Stage1RC-BEnemyR}">
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1100" ToY="50" DurationMs="2000" HoldMs="3500" />
+			<b:KeyFrame ToX="1410" ToY="50" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
+		<b:GunBehaviorReference DelayMs="1000" ReferenceName="AimingTurretB" />
+	</g:Enemy>
 
-    <g:Enemy x:Key="Stage1RC-BEnemy2B" BaseTexture="bird" Lives="5" R="{dx:Constant Stage1RC-BEnemyR}">
-        <b:KeyFramedMovementBehavior EasingPow="2">
-            <b:KeyFrame ToX="1100" ToY="360" DurationMs="2000" HoldMs="3500" />
-            <b:KeyFrame ToX="1410" ToY="360" DurationMs="2000" />
-        </b:KeyFramedMovementBehavior>
-        <b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
-        <b:GunBehaviorReference DelayMs="1000" ReferenceName="AimingTurretB" />
-    </g:Enemy>
+	<g:Enemy x:Key="Stage1RC-BEnemy2B" BaseTexture="bird" Lives="5" R="{dx:Constant Stage1RC-BEnemyR}">
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1100" ToY="360" DurationMs="2000" HoldMs="3500" />
+			<b:KeyFrame ToX="1410" ToY="360" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
+		<b:GunBehaviorReference DelayMs="1000" ReferenceName="AimingTurretB" />
+	</g:Enemy>
 
-    <g:Enemy x:Key="Stage1RC-BEnemy3B" BaseTexture="bird" Lives="5" R="{dx:Constant Stage1RC-BEnemyR}">
-        <b:KeyFramedMovementBehavior EasingPow="2">
-            <b:KeyFrame ToX="1100" ToY="670" DurationMs="2000" HoldMs="3500" />
-            <b:KeyFrame ToX="1410" ToY="670" DurationMs="2000" />
-        </b:KeyFramedMovementBehavior>
-        <b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
-        <b:GunBehaviorReference DelayMs="1000" ReferenceName="AimingTurretB" />
-    </g:Enemy>
+	<g:Enemy x:Key="Stage1RC-BEnemy3B" BaseTexture="bird" Lives="5" R="{dx:Constant Stage1RC-BEnemyR}">
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1100" ToY="670" DurationMs="2000" HoldMs="3500" />
+			<b:KeyFrame ToX="1410" ToY="670" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:DieOffScreenBehavior Width="1400" Height="780" X="0" Y="-100" />
+		<b:GunBehaviorReference DelayMs="1000" ReferenceName="AimingTurretB" />
+	</g:Enemy>
 
-    <!-- Tank -->
-    <g:Enemy x:Key="Stage1RC-BCEnemy1" BaseTexture="wasp" Lives="450" R="30">
-        <b:XYMovementBehavior Vx="-400" />
-        <b:TurningTurretBehavior Alpha="{dx:Degrees -90}" GunCooldownMs="120">
-            <g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.5" R="10"
-			          Tint="{dx:Constant Orange}">
-                <b:RadialMovementBehavior Vr="200" />
-            </g:Bullet>
-        </b:TurningTurretBehavior>
-    </g:Enemy>
-    
-    <!--Bosses-->
+	<!-- Tank -->
+	<g:Enemy x:Key="Stage1RC-BCEnemy1" BaseTexture="wasp" Lives="450" R="30">
+		<b:XYMovementBehavior Vx="-400" />
+		<b:TurningTurretBehavior Alpha="{dx:Degrees -90}" GunCooldownMs="120">
+			<g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.5" R="10"
+					  Tint="{dx:Constant Orange}">
+				<b:RadialMovementBehavior Vr="200" />
+			</g:Bullet>
+		</b:TurningTurretBehavior>
+	</g:Enemy>
+	
+	<!--Bosses-->
 
-    <g:Enemy x:Key="Stage1RC-BottomBoss" BaseTexture="wasp" EventOnDeath="Stage1RC-BottomBossDied" Lives="20"
-	         R="80">
-        <g:Enemy.Drawers>
-            <d:HealthbarDrawer Width="400" Height="10"
-			                   BorderColor="{dx:Constant Yellow}"
-			                   X="440" Y="700"
-			                   Color="{dx:Constant Black}" />
-        </g:Enemy.Drawers>
-        <b:KeyFramedMovementBehavior EasingPow="2">
-            <b:KeyFrame ToX="1100" ToY="570" DurationMs="2000" />
-        </b:KeyFramedMovementBehavior>
-        <b:GunBehaviorReference BulletTextureOverride="bullet3"
-		                        BulletTintOverride="{dx:Constant Yellow}"
-		                        ReferenceName="AlternatingSpiralTurret" />
-    </g:Enemy>
+	<g:Enemy x:Key="Stage1RC-BottomBoss" BaseTexture="wasp" EventOnDeath="Stage1RC-BottomBossDied" Lives="20"
+			 R="80">
+		<g:Enemy.Drawers>
+			<d:HealthbarDrawer Width="400" Height="10"
+							   BorderColor="{dx:Constant Yellow}"
+							   X="440" Y="700"
+							   Color="{dx:Constant Black}" />
+		</g:Enemy.Drawers>
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1100" ToY="570" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:GunBehaviorReference BulletTextureOverride="bullet3"
+								BulletTintOverride="{dx:Constant Yellow}"
+								ReferenceName="AlternatingSpiralTurret" />
+	</g:Enemy>
 
-    <g:Enemy x:Key="Stage1RC-TopBoss" BaseTexture="wasp" EventOnDeath="Stage1RC-TopBossDied" Lives="20"
-	         R="80">
-        <g:Enemy.Drawers>
-            <d:HealthbarDrawer Width="400" Height="10"
-			                   BorderColor="{dx:Constant Orange}"
-			                   X="440" Y="680"
-			                   Color="{dx:Constant Black}" />
-        </g:Enemy.Drawers>
-        <b:KeyFramedMovementBehavior EasingPow="2">
-            <b:KeyFrame ToX="1100" ToY="150" DurationMs="2000" />
-        </b:KeyFramedMovementBehavior>
-        <b:GunBehaviorReference BulletTextureOverride="bullet3"
-		                        BulletTintOverride="{dx:Constant Orange}"
-		                        ReferenceName="AlternatingSpiralRTurret" />
-    </g:Enemy>
+	<g:Enemy x:Key="Stage1RC-TopBoss" BaseTexture="wasp" EventOnDeath="Stage1RC-TopBossDied" Lives="20"
+			 R="80">
+		<g:Enemy.Drawers>
+			<d:HealthbarDrawer Width="400" Height="10"
+							   BorderColor="{dx:Constant Orange}"
+							   X="440" Y="680"
+							   Color="{dx:Constant Black}" />
+		</g:Enemy.Drawers>
+		<b:KeyFramedMovementBehavior EasingPow="2">
+			<b:KeyFrame ToX="1100" ToY="150" DurationMs="2000" />
+		</b:KeyFramedMovementBehavior>
+		<b:GunBehaviorReference BulletTextureOverride="bullet3"
+								BulletTintOverride="{dx:Constant Orange}"
+								ReferenceName="AlternatingSpiralRTurret" />
+	</g:Enemy>
 
-    <g:Enemy x:Key="Stage1RC-RingsBoss" BaseTexture="tiki_mask" EventOnDeath="Stage1RC-RingsBossDied" Lives="100"
-	         R="80">
-        <g:Enemy.Drawers>
-            <d:HealthbarDrawer Width="400" Height="10"
-			                   BorderColor="{dx:Constant Green}"
-			                   X="440" Y="680"
-			                   Color="{dx:Constant Black}" />
-        </g:Enemy.Drawers>
-        <b:BehaviorBag>
-            <b:TurningTurretBehavior Alpha="{dx:Degrees 90}"
-		                         Capacity="6" DelayMs="1000" GunCooldownMs="1" NeedsReloadFirst="False"
-		                         ReloadDurationMs="300"
-		                         TurnAfterReload="{dx:Degrees 20}"
-		                         TurnAfterShoot="{dx:Degrees 8}">
-                <g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15"
-			          Tint="{dx:Constant Green}">
-                    <b:RadialMovementBehavior Vr="150" />
-                    <b:CircularMovementBehavior Vdeg="0.7" />
-                    <b:SuicideBehavior TimeoutMs="15000" />
-                    <b:SuicideBehavior OnEvent="Stage1RC-RingsBossDied" />
-                </g:Bullet>
-            </b:TurningTurretBehavior>
+	<g:Enemy x:Key="Stage1RC-RingsBoss" BaseTexture="tiki_mask" EventOnDeath="Stage1RC-RingsBossDied" Lives="100"
+			 R="80">
+		<g:Enemy.Drawers>
+			<d:HealthbarDrawer Width="400" Height="10"
+							   BorderColor="{dx:Constant Green}"
+							   X="440" Y="680"
+							   Color="{dx:Constant Black}" />
+		</g:Enemy.Drawers>
+		<b:BehaviorBag>
+			<b:TurningTurretBehavior Alpha="{dx:Degrees 90}"
+								 Capacity="6" DelayMs="1000" GunCooldownMs="1" NeedsReloadFirst="False"
+								 ReloadDurationMs="300"
+								 TurnAfterReload="{dx:Degrees 20}"
+								 TurnAfterShoot="{dx:Degrees 8}">
+				<g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15"
+					  Tint="{dx:Constant Green}">
+					<b:RadialMovementBehavior Vr="150" />
+					<b:CircularMovementBehavior Vdeg="0.7" />
+					<b:SuicideBehavior TimeoutMs="15000" />
+					<b:SuicideBehavior OnEvent="Stage1RC-RingsBossDied" />
+				</g:Bullet>
+			</b:TurningTurretBehavior>
 
-            <b:TurningTurretBehavior Alpha="{dx:Degrees 90}"
-		                         Capacity="6" DelayMs="1300" GunCooldownMs="1" NeedsReloadFirst="False"
-		                         ReloadDurationMs="300"
-		                         TurnAfterReload="{dx:Degrees -20}"
-		                         TurnAfterShoot="{dx:Degrees -8}">
-                <g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15" Tint="{dx:Constant Orange}">
-                    <b:RadialMovementBehavior Vr="150" />
-                    <b:CircularMovementBehavior Vdeg="-0.7" />
-                    <b:SuicideBehavior TimeoutMs="15000" />
-                    <b:SuicideBehavior OnEvent="Stage1RC-RingsBossDied" />
-                </g:Bullet>
-            </b:TurningTurretBehavior>
-        </b:BehaviorBag>
-    </g:Enemy>
+			<b:TurningTurretBehavior Alpha="{dx:Degrees 90}"
+								 Capacity="6" DelayMs="1300" GunCooldownMs="1" NeedsReloadFirst="False"
+								 ReloadDurationMs="300"
+								 TurnAfterReload="{dx:Degrees -20}"
+								 TurnAfterShoot="{dx:Degrees -8}">
+				<g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15" Tint="{dx:Constant Orange}">
+					<b:RadialMovementBehavior Vr="150" />
+					<b:CircularMovementBehavior Vdeg="-0.7" />
+					<b:SuicideBehavior TimeoutMs="15000" />
+					<b:SuicideBehavior OnEvent="Stage1RC-RingsBossDied" />
+				</g:Bullet>
+			</b:TurningTurretBehavior>
+		</b:BehaviorBag>
+	</g:Enemy>
 
-    <g:Enemy x:Key="Stage1RC-FroggerBoss" BaseTexture="tiki_mask" EventOnDeath="Stage1RC-FroggerBossDied" Lives="120"
-	         R="80">
-        <g:Enemy.Drawers>
-            <d:HealthbarDrawer Width="400" Height="10"
-			                   BorderColor="{dx:Constant Lime}"
-			                   X="440" Y="680"
-			                   Color="{dx:Constant Black}" />
-        </g:Enemy.Drawers>
-        <b:BehaviorBag>
-            <b:TurningTurretBehavior Alpha="{dx:Degrees 170}"
-		                         Capacity="3" GunCooldownMs="10" ReloadDurationMs="100"
-		                         TurnAfterReload="{dx:Degrees -10}"
-		                         TurnAfterShoot="{dx:Degrees -2}">
-                <g:MultiBullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15"
-			               Tint="{dx:Constant Lime}">
-                    <b:RadialMovementBehavior Vr="100" />
-                    <b:CircularMovementBehavior Vper="200" />
-                    <b:SuicideBehavior TimeoutMs="15000" />
-                    <b:SuicideBehavior OnEvent="Stage1RC-FroggerBossDied" />
-                </g:MultiBullet>
-            </b:TurningTurretBehavior>
-            <b:TurningTurretBehavior Alpha="{dx:Degrees 170}"
-		                         Capacity="3" GunCooldownMs="10" ReloadDurationMs="100"
-		                         TurnAfterReload="{dx:Degrees 10}"
-		                         TurnAfterShoot="{dx:Degrees 2}">
-                <g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15"
-			          Tint="{dx:Constant Red}">
-                    <b:RadialMovementBehavior Vr="100" />
-                    <b:CircularMovementBehavior Vper="-200" />
-                    <b:SuicideBehavior TimeoutMs="15000" />
-                    <b:SuicideBehavior OnEvent="Stage1RC-FroggerBossDied" />
-                </g:Bullet>
-            </b:TurningTurretBehavior>
-        </b:BehaviorBag>
-    </g:Enemy>
+	<g:Enemy x:Key="Stage1RC-FroggerBoss" BaseTexture="tiki_mask" EventOnDeath="Stage1RC-FroggerBossDied" Lives="120"
+			 R="80">
+		<g:Enemy.Drawers>
+			<d:HealthbarDrawer Width="400" Height="10"
+							   BorderColor="{dx:Constant Lime}"
+							   X="440" Y="680"
+							   Color="{dx:Constant Black}" />
+		</g:Enemy.Drawers>
+		<b:BehaviorBag>
+			<b:TurningTurretBehavior Alpha="{dx:Degrees 170}"
+								 Capacity="3" GunCooldownMs="10" ReloadDurationMs="100"
+								 TurnAfterReload="{dx:Degrees -10}"
+								 TurnAfterShoot="{dx:Degrees -2}">
+				<g:MultiBullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15"
+						   Tint="{dx:Constant Lime}">
+					<b:RadialMovementBehavior Vr="100" />
+					<b:CircularMovementBehavior Vper="200" />
+					<b:SuicideBehavior TimeoutMs="15000" />
+					<b:SuicideBehavior OnEvent="Stage1RC-FroggerBossDied" />
+				</g:MultiBullet>
+			</b:TurningTurretBehavior>
+			<b:TurningTurretBehavior Alpha="{dx:Degrees 170}"
+								 Capacity="3" GunCooldownMs="10" ReloadDurationMs="100"
+								 TurnAfterReload="{dx:Degrees 10}"
+								 TurnAfterShoot="{dx:Degrees 2}">
+				<g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15"
+					  Tint="{dx:Constant Red}">
+					<b:RadialMovementBehavior Vr="100" />
+					<b:CircularMovementBehavior Vper="-200" />
+					<b:SuicideBehavior TimeoutMs="15000" />
+					<b:SuicideBehavior OnEvent="Stage1RC-FroggerBossDied" />
+				</g:Bullet>
+			</b:TurningTurretBehavior>
+		</b:BehaviorBag>
+	</g:Enemy>
 </dx:Prototypes>

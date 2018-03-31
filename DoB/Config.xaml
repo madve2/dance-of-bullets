@@ -4,6 +4,6 @@
 	<x:Int32 x:Key="ResolutionW">1366</x:Int32>
 	<x:Int32 x:Key="ResolutionH">768</x:Int32>
 
-    <x:Boolean x:Key="IsFullScreen">True</x:Boolean>
+	<x:Boolean x:Key="IsFullScreen">True</x:Boolean>
 	
 </d:Config>

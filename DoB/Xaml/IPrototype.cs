@@ -5,8 +5,8 @@ using System.Text;
 
 namespace DoB.Xaml
 {
-    public interface IPrototype
-    {
-        IPrototype Clone();
-    }
+	public interface IPrototype
+	{
+		IPrototype Clone();
+	}
 }

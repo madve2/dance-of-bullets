@@ -6,8 +6,8 @@ using DoB.Utility;
 
 namespace DoB.GameObjects
 {
-    public interface IHealth
-    {
-        Health Health { get; }
-    }
+	public interface IHealth
+	{
+		Health Health { get; }
+	}
 }

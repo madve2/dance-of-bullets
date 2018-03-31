@@ -7,16 +7,16 @@ using DoB.Components;
 
 namespace DoB.Xaml
 {
-    public class Stages : List<Stage>
-    {
-        public static Stages Current { get; set; }
+	public class Stages : List<Stage>
+	{
+		public static Stages Current { get; set; }
 
 		public List<Prototypes> PrototypePacks { get; set; }
 
-        public Stages()
-        {
-            Current = this;
+		public Stages()
+		{
+			Current = this;
 			PrototypePacks = new List<Prototypes>();
-        }
-    }
+		}
+	}
 }

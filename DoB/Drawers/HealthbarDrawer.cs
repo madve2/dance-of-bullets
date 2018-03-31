@@ -10,8 +10,8 @@ using DoB.Extensions;
 
 namespace DoB.Drawers
 {
-    public class HealthbarDrawer : RangeDrawer
-    {
+	public class HealthbarDrawer : RangeDrawer
+	{
 		Cooldown delay = new Cooldown();
 
 		private double _DelayMs;
@@ -25,14 +25,14 @@ namespace DoB.Drawers
 			}
 		}
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, GameObject gameObject)
-        {
+		public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, GameObject gameObject)
+		{
 			delay.Update( gameTime.ElapsedMs() );
 			if( !delay.IsElapsed )
 				return;
 
-            var rate = (((IHealth)gameObject).Health.Amount / (double)((IHealth)gameObject).Health.OriginalAmount);
-            DrawInner(spriteBatch, rate);
-        }
-    }
+			var rate = (((IHealth)gameObject).Health.Amount / (double)((IHealth)gameObject).Health.OriginalAmount);
+			DrawInner(spriteBatch, rate);
+		}
+	}
 }

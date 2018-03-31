@@ -7,31 +7,31 @@ using DoB.GameObjects;
 
 namespace DoB.Behaviors
 {
-    public class TurningTurretBehavior : TurretBehaviorBase
-    {
-        public double TurnAfterReload { get; set; }
-        public double TurnAfterShoot { get; set; }
+	public class TurningTurretBehavior : TurretBehaviorBase
+	{
+		public double TurnAfterReload { get; set; }
+		public double TurnAfterShoot { get; set; }
 
-        public double Alpha { get; set; }
+		public double Alpha { get; set; }
 
-        bool wasShooting = false;
-        public override void UpdateOverride(GameTime gameTime, GameObject gameObject)
-        {
-            var isShooting = Capacity == 0 || remainingBullets > 0;
-            if (isShooting && !wasShooting)
-                Alpha += TurnAfterReload;
+		bool wasShooting = false;
+		public override void UpdateOverride(GameTime gameTime, GameObject gameObject)
+		{
+			var isShooting = Capacity == 0 || remainingBullets > 0;
+			if (isShooting && !wasShooting)
+				Alpha += TurnAfterReload;
 
-            wasShooting = isShooting;
+			wasShooting = isShooting;
 
-            base.UpdateOverride(gameTime, gameObject);
-        }
+			base.UpdateOverride(gameTime, gameObject);
+		}
 
-        protected override Bullet Fire(GameObject gameObject)
-        {
-            var bullet = base.Fire(gameObject);
-            bullet.GeneralDirection = Alpha;
-            Alpha += TurnAfterShoot;
-            return bullet;
-        }
-    }
+		protected override Bullet Fire(GameObject gameObject)
+		{
+			var bullet = base.Fire(gameObject);
+			bullet.GeneralDirection = Alpha;
+			Alpha += TurnAfterShoot;
+			return bullet;
+		}
+	}
 }

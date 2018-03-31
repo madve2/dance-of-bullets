@@ -34,7 +34,7 @@ namespace DoB.GameObjects
 				}
 			}
 
-            RemoveSelf(); //No need for the container anymore
-        }
+			RemoveSelf(); //No need for the container anymore
+		}
 	}
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DoB.Xaml
 {
-    public class DoubleConstant : Constant<double>
-    {
-    }
+	public class DoubleConstant : Constant<double>
+	{
+	}
 }

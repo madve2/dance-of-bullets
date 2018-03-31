@@ -6,23 +6,23 @@ using System.Windows.Markup;
 
 namespace DoB.Xaml
 {
-    public class ConstantExtension : MarkupExtension
-    {
-        public string Name { get; set; }
+	public class ConstantExtension : MarkupExtension
+	{
+		public string Name { get; set; }
 
-        public ConstantExtension()
-        {
+		public ConstantExtension()
+		{
 
-        }
+		}
 
-        public ConstantExtension(string name)
-        {
-            Name = name;
-        }
+		public ConstantExtension(string name)
+		{
+			Name = name;
+		}
 
-        public override object ProvideValue(IServiceProvider serviceProvider)
-        {
+		public override object ProvideValue(IServiceProvider serviceProvider)
+		{
 			return ( (ConstantBase)Prototypes.All[Name] ).GetValue();
-        }
-    }
+		}
+	}
 }
