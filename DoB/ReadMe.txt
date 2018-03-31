@@ -16,10 +16,10 @@ With that, these are the controls:
 Arrow keys to move
 C or Space to shoot (just keep pressing it, you have no reason to let it go!)
 X to turn your "slow down" ability on or off – use it to get through tight spots! Turns off when the blue bar is completely drained.
-Z or Y to unleash "rain of bullets" (only when the green bar is full, and then it stays enabled 'till it's drained) – use it when you need a final blow on a nasty boss. Not only does it increase your fire rate, but also wipes all bullets off the screen.
+Z or Y to unleash "rain of bullets" (only when the red bar is full and turns green) – use it when you need a final blow on a nasty boss. Not only does it increase your fire rate, but also wipes all bullets off the screen.
 P to pause
 Esc to Exit
-Alt + Enter to toggle full screen. (The window size is determined by Config.xaml –edit that file in a text editor to change it. That's a bit more difficult than it should be, sorry for that.)
+Alt + Enter to toggle full screen. (The window size is determined by Config.xaml – edit that file in a text editor to change it. That's a bit more difficult than it should be, sorry for that.)
 
 Appendix: making your own levels
 --------------------------------
@@ -29,4 +29,4 @@ While I've yet to make a proper documentation for the level format of Dance of B
 
 You can find some pointers until I write a proper documentation here: https://github.com/madve2/dance-of-bullets#making-your-own-levels
 
-If you made something cool I'd be super glad to hear about it – in the comments below, or any other location you find appropriate!
+If you made something cool I'd be super glad to hear about it – in the comments at https://madve2.itch.io/dance-of-bullets, or any other location you find appropriate!
