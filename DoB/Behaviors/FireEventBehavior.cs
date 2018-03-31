@@ -14,8 +14,15 @@ namespace DoB.Behaviors
     {
         public string EventName { get; set; }
         public double CooldownMs { get; set; }
+        public override bool IsElapsed => fireCooldown?.IsElapsed ?? false;
 
         protected Cooldown fireCooldown = null;
+
+        public override void ResetTimers()
+        {
+            base.ResetTimers();
+            fireCooldown = null;
+        }
 
         public override IPrototype Clone()
         {
@@ -36,7 +43,6 @@ namespace DoB.Behaviors
 
             if (fireCooldown.IsElapsed)
             {
-                fireCooldown.Reset(CooldownMs);
                 EventBroker.FireEvent(EventName);
             }
         }

@@ -17,7 +17,13 @@ namespace DoB.Behaviors
 		private Cooldown timeoutCooldown = null;
 		public double? TimeoutMs { get; set; }
 
-		private bool readyToCommit;
+        public override void ResetTimers()
+        {
+            base.ResetTimers();
+            timeoutCooldown = null;
+        }
+
+        private bool readyToCommit;
 
 		public override void OnFirstUpdate( GameTime gameTime, GameObject gameObject )
 		{

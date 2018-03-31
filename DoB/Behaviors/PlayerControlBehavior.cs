@@ -17,6 +17,12 @@ namespace DoB.Behaviors
         private bool lockPause = false;
         private double v = 300;
         private Cooldown gunCooldown = new Cooldown();
+
+        public override void ResetTimers()
+        {
+            throw new NotSupportedException();
+        }
+
         public override IPrototype Clone()
         {
             var c = (PlayerControlBehavior)base.Clone();

@@ -38,14 +38,17 @@ namespace DoB.Behaviors
         Cooldown keyFrameHold;
         private bool isHoldingFrame;
 
-        
-
         public KeyFramedMovementBehavior()
         {
             KeyFrames = new List<KeyFrame>();
             keyFrameDuration = new Cooldown();
             keyFrameHold = new Cooldown();
             EasingPow = 1;
+        }
+
+        public override void ResetTimers()
+        {
+            throw new NotSupportedException();
         }
 
         public override IPrototype Clone()

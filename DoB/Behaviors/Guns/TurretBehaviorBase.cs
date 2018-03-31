@@ -19,8 +19,11 @@ namespace DoB.Behaviors
         
         protected int remainingBullets = 0;
 
-        public TurretBehaviorBase()
+        public override void ResetTimers()
         {
+            base.ResetTimers();
+            gunCooldown = null;
+            reloadCooldown = null;
         }
 
         public override IPrototype Clone()

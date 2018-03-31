@@ -27,7 +27,7 @@ namespace DoB.Behaviors
 			LengthMs = double.PositiveInfinity;
 		}
 
-		public bool IsElapsed
+		public virtual bool IsElapsed
 		{
 			get
 			{
@@ -45,10 +45,11 @@ namespace DoB.Behaviors
 			return c;
 		}
 
-		public void ResetTimers()
+		public virtual void ResetTimers()
 		{
 			delay = null;
 			length = null;
+            isFirstUpdate = true;
 		}
 
 		public void Update( GameTime gameTime, GameObject gameObject )
