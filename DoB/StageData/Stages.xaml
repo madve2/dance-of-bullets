@@ -60,10 +60,7 @@
 
 		<c:Segment>
             <c:EnemySpawner Count="1" ReferenceName="Stage2ZEnemy0" X="1400" Y="360" />
-			<c:EnemySpawner Count="1" ReferenceName="Stage2ZEnemy1" WaitForEvent="Stage2ZEnemy0Died" X="1400" Y="360" />
-			<c:EnemySpawner Count="1" ReferenceName="Stage2ZEnemy2" WaitForEvent="Stage2ZEnemy1Died" X="1100"
-			                Y="360" />
-			<c:EnemySpawner Count="1" ReferenceName="Stage2ZEnemy3" WaitForEvent="Stage2ZEnemy2Died" X="1100"
+            <c:EnemySpawner Count="1" ReferenceName="Stage2ZEnemy3" WaitForEvent="Stage2ZEnemy0Died" X="1100"
 			                Y="360" />
 		</c:Segment>
 

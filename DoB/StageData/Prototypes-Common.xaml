@@ -180,32 +180,6 @@
 			</g:MultiBullet>
 		</b:TurningTurretBehavior>
 	</b:BehaviorBag>
-	<b:BehaviorBag x:Key="RingsTurret">
-		<b:TurningTurretBehavior Alpha="{dx:Degrees 90}"
-		                         Capacity="6" DelayMs="1000" GunCooldownMs="1" NeedsReloadFirst="False"
-		                         ReloadDurationMs="300"
-		                         TurnAfterReload="{dx:Degrees 20}"
-		                         TurnAfterShoot="{dx:Degrees 8}">
-			<g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15"
-			          Tint="{dx:Constant Green}">
-				<b:RadialMovementBehavior Vr="150" />
-				<b:CircularMovementBehavior Vdeg="0.7" />
-				<b:SuicideBehavior TimeoutMs="15000" />
-			</g:Bullet>
-		</b:TurningTurretBehavior>
-
-		<b:TurningTurretBehavior Alpha="{dx:Degrees 90}"
-		                         Capacity="6" DelayMs="1300" GunCooldownMs="1" NeedsReloadFirst="False"
-		                         ReloadDurationMs="300"
-		                         TurnAfterReload="{dx:Degrees -20}"
-		                         TurnAfterShoot="{dx:Degrees -8}">
-			<g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15" Tint="{dx:Constant Orange}">
-				<b:RadialMovementBehavior Vr="150" />
-				<b:CircularMovementBehavior Vdeg="-0.7" />
-				<b:SuicideBehavior TimeoutMs="15000" />
-			</g:Bullet>
-		</b:TurningTurretBehavior>
-	</b:BehaviorBag>
 
 	<b:BehaviorBag x:Key="ScarfTurret">
 		<b:TurningTurretBehavior Alpha="{dx:Degrees 170}"
@@ -236,29 +210,5 @@
 		</b:TurningTurretBehavior>
 	</b:BehaviorBag>
 
-	<b:BehaviorBag x:Key="FroggerTurret">
-		<b:TurningTurretBehavior Alpha="{dx:Degrees 170}"
-		                         Capacity="3" GunCooldownMs="10" ReloadDurationMs="100"
-		                         TurnAfterReload="{dx:Degrees -10}"
-		                         TurnAfterShoot="{dx:Degrees -2}">
-			<g:MultiBullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15"
-			               Tint="{dx:Constant Lime}">
-				<b:RadialMovementBehavior Vr="100" />
-				<b:CircularMovementBehavior Vper="200" />
-				<b:SuicideBehavior TimeoutMs="15000" />
-			</g:MultiBullet>
-		</b:TurningTurretBehavior>
-		<b:TurningTurretBehavior Alpha="{dx:Degrees 170}"
-		                         Capacity="3" GunCooldownMs="10" ReloadDurationMs="100"
-		                         TurnAfterReload="{dx:Degrees 10}"
-		                         TurnAfterShoot="{dx:Degrees 2}">
-			<g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15"
-			          Tint="{dx:Constant Red}">
-				<b:RadialMovementBehavior Vr="100" />
-				<b:CircularMovementBehavior Vper="-200" />
-				<b:SuicideBehavior TimeoutMs="15000" />
-			</g:Bullet>
-		</b:TurningTurretBehavior>
-	</b:BehaviorBag>
 	<!--  End region  -->
 </dx:Prototypes>

@@ -60,70 +60,45 @@
 
     <g:Enemy x:Key="Stage2ZEnemy0" BaseTexture="wasp" EventOnDeath="Stage2ZEnemy0Died" Lives="180"
 	         R="80">
-		<g:Enemy.Drawers>
-			<d:HealthbarDrawer Width="400" Height="10"
+        <g:Enemy.Drawers>
+            <d:HealthbarDrawer Width="400" Height="10"
 			                   BorderColor="{dx:Constant Magenta}"
 			                   X="440" Y="680"
 			                   Color="{dx:Constant Red}" />
-		</g:Enemy.Drawers>
-		<b:KeyFramedMovementBehavior EasingPow="2">
-			<b:KeyFrame DurationMs="300" TranslateX="-250" />
-		</b:KeyFramedMovementBehavior>
-		<b:TurningTurretBehavior Alpha="{dx:Degrees 90}"
+        </g:Enemy.Drawers>
+        <b:KeyFramedMovementBehavior EasingPow="2">
+            <b:KeyFrame DurationMs="300" TranslateX="-250" />
+        </b:KeyFramedMovementBehavior>
+        <b:TurningTurretBehavior Alpha="{dx:Degrees 90}"
 		                         Capacity="3" DelayMs="1000" GunCooldownMs="300" NeedsReloadFirst="False"
 		                         ReloadDurationMs="600"
 		                         TurnAfterReload="{dx:Degrees 20}"
 		                         TurnAfterShoot="{dx:Degrees 8}">
-			<g:BulletBag>
-				<g:ExplodingBullet ClusterCount="6" Vexpl="40">
-					<g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15"
+            <g:BulletBag>
+                <g:ExplodingBullet ClusterCount="6" Vexpl="40">
+                    <g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15"
 					          Tint="{dx:Constant Magenta}">
-						<b:RadialMovementBehavior Vr="450" />
-						<b:CircularMovementBehavior Vdeg="0.7" />
-						<b:SuicideBehavior TimeoutMs="15000" />
-						<b:SuicideBehavior OnEvent="Stage2ZEnemy0Died" />
-					</g:Bullet>
-				</g:ExplodingBullet>
-				<g:ExplodingBullet ClusterCount="6"
+                        <b:RadialMovementBehavior Vr="450" />
+                        <b:CircularMovementBehavior Vdeg="0.7" />
+                        <b:SuicideBehavior TimeoutMs="15000" />
+                        <b:SuicideBehavior OnEvent="Stage2ZEnemy0Died" />
+                    </g:Bullet>
+                </g:ExplodingBullet>
+                <g:ExplodingBullet ClusterCount="6"
 				                   GeneralDirection="{dx:Degrees 180}"
 				                   Vexpl="40">
-					<g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15">
-						<b:RadialMovementBehavior Vr="450" />
-						<b:CircularMovementBehavior Vdeg="0.7" />
-						<b:SuicideBehavior TimeoutMs="15000" />
-						<b:SuicideBehavior OnEvent="Stage2ZEnemy0Died" />
-					</g:Bullet>
-				</g:ExplodingBullet>
-			</g:BulletBag>
-		</b:TurningTurretBehavior>
-	</g:Enemy>
+                    <g:Bullet BaseTexture="bullet1" CollisionBoxScale="0.7" DieOffScreen="False" R="15">
+                        <b:RadialMovementBehavior Vr="450" />
+                        <b:CircularMovementBehavior Vdeg="0.7" />
+                        <b:SuicideBehavior TimeoutMs="15000" />
+                        <b:SuicideBehavior OnEvent="Stage2ZEnemy0Died" />
+                    </g:Bullet>
+                </g:ExplodingBullet>
+            </g:BulletBag>
+        </b:TurningTurretBehavior>
+    </g:Enemy>
 
-	<g:Enemy x:Key="Stage2ZEnemy1" BaseTexture="wasp" EventOnDeath="Stage2ZEnemy1Died" Lives="120"
-	         R="80">
-		<g:Enemy.Drawers>
-			<d:HealthbarDrawer Width="400" Height="10"
-			                   BorderColor="{dx:Constant Magenta}"
-			                   X="440" Y="680"
-			                   Color="{dx:Constant Red}" />
-		</g:Enemy.Drawers>
-		<b:KeyFramedMovementBehavior EasingPow="2">
-			<b:KeyFrame DurationMs="300" TranslateX="-250" />
-		</b:KeyFramedMovementBehavior>
-		<b:GunBehaviorReference ReferenceName="RingsTurret" />
-	</g:Enemy>
-
-	<g:Enemy x:Key="Stage2ZEnemy2" BaseTexture="wasp" EventOnDeath="Stage2ZEnemy2Died" Lives="120"
-	         R="80">
-		<g:Enemy.Drawers>
-			<d:HealthbarDrawer Width="400" Height="10"
-			                   BorderColor="{dx:Constant Magenta}"
-			                   X="440" Y="680"
-			                   Color="{dx:Constant Red}" />
-		</g:Enemy.Drawers>
-		<b:GunBehaviorReference ReferenceName="FroggerTurret" />
-	</g:Enemy>
-
-	<g:Enemy x:Key="Stage2ZEnemy3" BaseTexture="wasp" EventOnDeath="Stage2ZEnemy3Died" Lives="120"
+    <g:Enemy x:Key="Stage2ZEnemy3" BaseTexture="wasp" EventOnDeath="Stage2ZEnemy3Died" Lives="120"
 	         R="80">
 		<g:Enemy.Drawers>
 			<d:HealthbarDrawer Width="400" Height="10"
