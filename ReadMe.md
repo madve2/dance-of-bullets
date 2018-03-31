@@ -17,8 +17,7 @@ Ideally, the goal is to release it as a free game on Steam, with workshop suppor
 :x: | There's no menu or settings. The game just starts when you run it, and you can't restart when you die (or reach the end of the last stage). There's a config file, but it only supports setting a resolution. Fixed keybindings with no controller support.
 :x: | Only has placeholder assets (especially on the second and third level of the alpha), barebones HUD.
 :x: | While objects can move across the screen in fascinating ways, there's no support for animated textures yet.
-:x: | No scoring, and by extension, no high scores.
-:x: | No sounds or music either.
+:x: | No sounds or music.
 
 :heavy_check_mark: | The good news
 ---|---
@@ -26,6 +25,8 @@ Ideally, the goal is to release it as a free game on Steam, with workshop suppor
 :heavy_check_mark: | Complex and highly customizable (composable, even) bullet patterns.
 :heavy_check_mark: | Special abilities: slow-down time and "rain of bullets".
 :heavy_check_mark: | A sophisticated, XAML-based level format with a huge focus on flexibility, reusability and extensibility. After reading the documentation (coming soon...) it should be easy to create new enemies, bosses and complete levels (even campaigns) without programming knowledge / modifying the code.
+:heavy_check_mark: | *NEW in Bullet Bash Edition:* Self-adjusting difficulty – the longer you fly without getting hit, the quicker the game becomes. In turn, getting hit reduces the speed, allowing you to catch your breath.
+:heavy_check_mark: | *NEW in Bullet Bash Edition:* Scoring! Shooting down enemies will now award you with delicious points depending on their toughness and the current difficulty level.
 
 :lipstick: | Code quality
 ---|---
@@ -40,7 +41,7 @@ Download the current alpha and take it for a spin from [Itch](https://madve2.itc
 
 ## Making your own levels
 
-While I've yet to make a proper documentation for the level format of Dance of Bullets, open the files in the StageData folder with your favorite text editor and start tweaking! You will be able to add your own levels, enemies, bullet patterns and bosses in no time! 
+While I've yet to make a proper documentation for the level format of Dance of Bullets, open the files in the _StageData_ folder with your favorite text editor and start tweaking! You will be able to add your own levels, enemies, bullet patterns and bosses in no time!
 
 Some pointers until I write some proper documentation:
 
