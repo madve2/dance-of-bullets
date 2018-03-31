@@ -166,6 +166,13 @@ namespace DoB
 			if( GamePad.GetState( PlayerIndex.One ).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape) )
 				this.Exit();
 
+            if (Keyboard.GetState().IsKeyDown(Keys.LeftAlt) && Keyboard.GetState().IsKeyDown(Keys.Enter))
+            {
+                graphics.IsFullScreen = !graphics.IsFullScreen;
+                graphics.ApplyChanges();
+            }
+                
+
 			Objects.RemoveAll( c => c.IsMarkedForRemoval );
 
 			for( int i = 0; i < ShmupComponents.Count; i++ )
