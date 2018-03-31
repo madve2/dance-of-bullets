@@ -10,36 +10,36 @@ using DoB.Xaml;
 
 namespace DoB.Behaviors
 {
-    [Obsolete("Use TurningTurretBehavior instead.")]
-    public class SpinningTurretBehavior : TurretBehaviorBase
-    {
-        public double VdegReloading { get; set; }
-        public double VdegShooting { get; set; }
-        public double Vdeg
-        {
-            set
-            {
-                VdegShooting = value;
-                VdegReloading = value;
-            }
-        }
+	[Obsolete("Use TurningTurretBehavior instead.")]
+	public class SpinningTurretBehavior : TurretBehaviorBase
+	{
+		public double VdegReloading { get; set; }
+		public double VdegShooting { get; set; }
+		public double Vdeg
+		{
+			set
+			{
+				VdegShooting = value;
+				VdegReloading = value;
+			}
+		}
 
-        public double Alpha { get; set; }
+		public double Alpha { get; set; }
 
-        public override void UpdateOverride(GameTime gameTime, GameObject gameObject)
-        {
-            var isShooting = Capacity == 0 || remainingBullets > 0;
-            var vdeg = isShooting ? VdegShooting : VdegReloading;
-            Alpha += GameSpeedManager.ApplySpeed(vdeg, gameTime.ElapsedGameTime.TotalMilliseconds);
+		public override void UpdateOverride(GameTime gameTime, GameObject gameObject)
+		{
+			var isShooting = Capacity == 0 || remainingBullets > 0;
+			var vdeg = isShooting ? VdegShooting : VdegReloading;
+			Alpha += GameSpeedManager.ApplySpeed(vdeg, gameTime.ElapsedGameTime.TotalMilliseconds);
 
-            base.UpdateOverride(gameTime, gameObject);
-        }
+			base.UpdateOverride(gameTime, gameObject);
+		}
 
-        protected override Bullet Fire(GameObject gameObject)
-        {
-           var bullet = base.Fire(gameObject);
-            bullet.GeneralDirection = Alpha;
-            return bullet;
-        }
-    }
+		protected override Bullet Fire(GameObject gameObject)
+		{
+		   var bullet = base.Fire(gameObject);
+			bullet.GeneralDirection = Alpha;
+			return bullet;
+		}
+	}
 }

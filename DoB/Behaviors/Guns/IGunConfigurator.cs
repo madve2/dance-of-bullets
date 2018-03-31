@@ -7,10 +7,10 @@ using Microsoft.Xna.Framework;
 
 namespace DoB.Behaviors
 {
-    public interface IGunConfigurator
-    {
-        Color? BulletTintOverride { get; set; }
+	public interface IGunConfigurator
+	{
+		Color? BulletTintOverride { get; set; }
 
-        string BulletTextureOverride { get; set; }
-    }
+		string BulletTextureOverride { get; set; }
+	}
 }

@@ -11,43 +11,43 @@ using DoB.Xaml;
 
 namespace DoB.Drawers
 {
-    public class TextureDrawer : Drawer
-    {
+	public class TextureDrawer : Drawer
+	{
 		protected static readonly string[] rotatableTextures = new[] { "arrow" };
 
 		protected bool rotate = false;
 
-        public string Texture
-        {
-            get { return _Texture; }
-            set
-            {
-                if (_Texture != value)
-                {
-                    _Texture = value;
+		public string Texture
+		{
+			get { return _Texture; }
+			set
+			{
+				if (_Texture != value)
+				{
+					_Texture = value;
 					rotate = rotatableTextures.Contains( value );
-                    if (GameObject.Game != null)
-                        textureObj = GameObject.Game.Content.Load<Texture2D>(_Texture);
-                }
-            }
-        }
+					if (GameObject.Game != null)
+						textureObj = GameObject.Game.Content.Load<Texture2D>(_Texture);
+				}
+			}
+		}
 
 		protected Texture2D textureObj;
 
 		private string _Texture = "";
 
-        public override IPrototype Clone()
-        {
-            var c = (TextureDrawer)base.Clone();
-            if (!string.IsNullOrEmpty(Texture))
-                c.textureObj = GameObject.Game.Content.Load<Texture2D>(Texture);
-            return c;
-        }
+		public override IPrototype Clone()
+		{
+			var c = (TextureDrawer)base.Clone();
+			if (!string.IsNullOrEmpty(Texture))
+				c.textureObj = GameObject.Game.Content.Load<Texture2D>(Texture);
+			return c;
+		}
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, GameObject gameObject)
-        {
-            if (textureObj == null)
-                return;
+		public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, GameObject gameObject)
+		{
+			if (textureObj == null)
+				return;
 
 			if( !rotate )
 			{
@@ -70,7 +70,7 @@ namespace DoB.Drawers
 			pos.Y = rect.Y + rect.Height / 2f;
 
 			spriteBatch.Draw( textureObj, pos, null, gameObject.Tint, (float)gameObject.GeneralDirection,
-            origin, scale, SpriteEffects.None, 0f );
-        }
-    }
+			origin, scale, SpriteEffects.None, 0f );
+		}
+	}
 }

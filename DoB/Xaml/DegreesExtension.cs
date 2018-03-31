@@ -6,21 +6,21 @@ using System.Windows.Markup;
 
 namespace DoB.Xaml
 {
-    public class DegreesExtension : MarkupExtension
-    {
-        public double Degrees { get; set; }
-        public DegreesExtension()
-        {
-        }
+	public class DegreesExtension : MarkupExtension
+	{
+		public double Degrees { get; set; }
+		public DegreesExtension()
+		{
+		}
 
-        public DegreesExtension(double degrees)
-        {
-            Degrees = degrees;
-        }
+		public DegreesExtension(double degrees)
+		{
+			Degrees = degrees;
+		}
 
-        public override object ProvideValue(IServiceProvider serviceProvider)
-        {
-            return (Math.PI / 180) * Degrees;
-        }
-    }
+		public override object ProvideValue(IServiceProvider serviceProvider)
+		{
+			return (Math.PI / 180) * Degrees;
+		}
+	}
 }

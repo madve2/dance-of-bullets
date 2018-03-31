@@ -8,26 +8,26 @@ using DoB.GameObjects;
 
 namespace DoB.Drawers
 {
-    public class HitboxDrawer : TextureDrawer
-    {
-        public static bool AreVisible { get; set; }
+	public class HitboxDrawer : TextureDrawer
+	{
+		public static bool AreVisible { get; set; }
 
-        static HitboxDrawer()
-        {
-            AreVisible = false;
-        }
+		static HitboxDrawer()
+		{
+			AreVisible = false;
+		}
 
-        public HitboxDrawer()
-        {
-            Texture = "hitbox";
-        }
+		public HitboxDrawer()
+		{
+			Texture = "hitbox";
+		}
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, GameObject gameObject)
-        {
-            if (!AreVisible)
-                return;
+		public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, GameObject gameObject)
+		{
+			if (!AreVisible)
+				return;
 
-            spriteBatch.Draw(textureObj, ((Collideable)gameObject).GetCollisionRectangle(), Color.White);
-        }
-    }
+			spriteBatch.Draw(textureObj, ((Collideable)gameObject).GetCollisionRectangle(), Color.White);
+		}
+	}
 }

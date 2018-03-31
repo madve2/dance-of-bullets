@@ -5,13 +5,13 @@ using System.Text;
 
 namespace DoB.Xaml
 {
-    public abstract class ConstantBase : IPrototype
-    {
-        public abstract object GetValue();
+	public abstract class ConstantBase : IPrototype
+	{
+		public abstract object GetValue();
 
-        public IPrototype Clone()
-        {
-            return (IPrototype)this.MemberwiseClone();
-        }
-    }
+		public IPrototype Clone()
+		{
+			return (IPrototype)this.MemberwiseClone();
+		}
+	}
 }

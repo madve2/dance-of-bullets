@@ -13,16 +13,16 @@ namespace DoB.Components
 		public List<IComponent> Components { get; set; }
 
 		public Segment()
-        {
-            Components = new List<IComponent>();
-        }
+		{
+			Components = new List<IComponent>();
+		}
 
 		protected override void UpdateOverride( GameTime gameTime )
-        {
-            for (int i = 0; i < Components.Count; i++)
-            {
-                Components[i].Update(gameTime);
-            }
-        }
+		{
+			for (int i = 0; i < Components.Count; i++)
+			{
+				Components[i].Update(gameTime);
+			}
+		}
 	}
 }

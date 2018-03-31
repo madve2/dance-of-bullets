@@ -14,9 +14,9 @@ namespace DoB.Behaviors
 	{
 		public double DelayMs { get; set; }
 		public double LengthMs { get; set; }
-        public string WaitForEvent { get; set; }
+		public string WaitForEvent { get; set; }
 
-        bool isWaitingForEvent = false;
+		bool isWaitingForEvent = false;
 		bool isFirstUpdate = true;
 
 		Cooldown delay = null;
@@ -49,19 +49,19 @@ namespace DoB.Behaviors
 		{
 			delay = null;
 			length = null;
-            isFirstUpdate = true;
+			isFirstUpdate = true;
 		}
 
 		public void Update( GameTime gameTime, GameObject gameObject )
 		{
-            if (!isWaitingForEvent && WaitForEvent != null)
-            {
-                isWaitingForEvent = true;
-                EventBroker.SubscribeOnce(WaitForEvent, s => { isWaitingForEvent = false; WaitForEvent = null; });
-            }
+			if (!isWaitingForEvent && WaitForEvent != null)
+			{
+				isWaitingForEvent = true;
+				EventBroker.SubscribeOnce(WaitForEvent, s => { isWaitingForEvent = false; WaitForEvent = null; });
+			}
 
-            if (isWaitingForEvent)
-                return;
+			if (isWaitingForEvent)
+				return;
 
 			if( delay == null )
 				delay = new Cooldown( DelayMs );

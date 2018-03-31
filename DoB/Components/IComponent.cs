@@ -6,8 +6,8 @@ using Microsoft.Xna.Framework;
 
 namespace DoB.Components
 {
-    public interface IComponent
-    {
-        void Update(GameTime gameTime);
-    }
+	public interface IComponent
+	{
+		void Update(GameTime gameTime);
+	}
 }

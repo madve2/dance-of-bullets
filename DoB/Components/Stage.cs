@@ -9,27 +9,27 @@ using DoB.Utility;
 
 namespace DoB.Components
 {
-    [ContentProperty("Components")]
-    public class Stage : IComponent
-    {
+	[ContentProperty("Components")]
+	public class Stage : IComponent
+	{
 		public bool IsEnded { get; set; }
 
 		public string BackgroundTexture { get; set; }
 
-        private string _BackgroundTextures;
-        public string BackgroundTextures
-        {
-            get { return _BackgroundTextures; }
-            set
-            {
-                if (_BackgroundTextures == value)
-                    return;
-                _BackgroundTextures = value;
-                BackgroundTextureArray = _BackgroundTextures.Split(';');
-            }
-        }
+		private string _BackgroundTextures;
+		public string BackgroundTextures
+		{
+			get { return _BackgroundTextures; }
+			set
+			{
+				if (_BackgroundTextures == value)
+					return;
+				_BackgroundTextures = value;
+				BackgroundTextureArray = _BackgroundTextures.Split(';');
+			}
+		}
 
-        public string[] BackgroundTextureArray { get; set; }
+		public string[] BackgroundTextureArray { get; set; }
 
 		private string _EndsOnEvent;
 		public string EndsOnEvent
@@ -42,19 +42,19 @@ namespace DoB.Components
 			}
 		}
 
-        public List<IComponent> Components { get; set; }
+		public List<IComponent> Components { get; set; }
 
-        public Stage()
-        {
-            Components = new List<IComponent>();
-        }
+		public Stage()
+		{
+			Components = new List<IComponent>();
+		}
 
-        public void Update(GameTime gameTime)
-        {
-            for (int i = 0; i < Components.Count; i++)
-            {
-                Components[i].Update(gameTime);
-            }
-        }
-    }
+		public void Update(GameTime gameTime)
+		{
+			for (int i = 0; i < Components.Count; i++)
+			{
+				Components[i].Update(gameTime);
+			}
+		}
+	}
 }

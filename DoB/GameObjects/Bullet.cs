@@ -10,17 +10,17 @@ using System.Diagnostics;
 
 namespace DoB.GameObjects
 {
-    public class Bullet : Collideable
-    {
+	public class Bullet : Collideable
+	{
 		private DieOffScreenBehavior dieOffScreen;
 
 		public Bullet()
-        {
-            //some sensible defaults
-            R = 7; 
+		{
+			//some sensible defaults
+			R = 7; 
 			dieOffScreen = new DieOffScreenBehavior();
 			Behaviors.Add(dieOffScreen);
-        }
+		}
 
 		public bool DieOffScreen
 		{
@@ -38,25 +38,25 @@ namespace DoB.GameObjects
 			}
 		}
 
-        public override void CollideWith(Collideable c)
-        {
-            c.Collide(this);
-        }
+		public override void CollideWith(Collideable c)
+		{
+			c.Collide(this);
+		}
 
-        public override void Collide(Bullet b)
-        {
-        }
+		public override void Collide(Bullet b)
+		{
+		}
 
-        public override void Collide(Player p)
-        {
-            if (!IsFriendly)
-                this.RemoveSelf();
-        }
+		public override void Collide(Player p)
+		{
+			if (!IsFriendly)
+				this.RemoveSelf();
+		}
 
-        public override void Collide(Enemy e)
-        {
-            if (IsFriendly)
-                this.RemoveSelf();
-        }
-    }
+		public override void Collide(Enemy e)
+		{
+			if (IsFriendly)
+				this.RemoveSelf();
+		}
+	}
 }

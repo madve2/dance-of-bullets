@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DoB.Behaviors
 {
-    public class NopBehavior : Behavior
-    {
-    }
+	public class NopBehavior : Behavior
+	{
+	}
 }
