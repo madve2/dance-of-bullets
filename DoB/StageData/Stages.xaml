@@ -3,7 +3,7 @@
            PrototypePacks="{dx:PrototypesLoader Prototypes-Common;Prototypes-1;Prototypes-2;PrototypesRC-1}">
 
     <c:Stage BackgroundTextures="Background_sil;Background_sil_buildings;Background_sil_foreground" EndsOnEvent="Stage2ZEnemy4Died">
-        <c:DebugControls />
+        <!--<c:DebugControls />-->
 
         <c:Segment>
             <c:EnemySpawner CooldownMs="6000" Count="4" ReferenceName="Stage1RC-BEnemy1"
@@ -56,7 +56,7 @@
     </c:Stage>
 
     <c:Stage BackgroundTextures="Background_sil2;Background_sil_foreground2" EndsOnEvent="Stage2BBossDied">
-		<c:DebugControls />
+		<!--<c:DebugControls />-->
 
 		<c:Segment>
             <c:EnemySpawner Count="1" ReferenceName="Stage2ZEnemy0" X="1400" Y="360" />
@@ -85,7 +85,7 @@
 	</c:Stage>
 
     <c:Stage  BackgroundTexture="Background_castle" EndsOnEvent="MiddleBossDied">
-		<c:DebugControls />
+		<!--<c:DebugControls />-->
 
 
 		<c:EnemySpawner CooldownMs="1500" Count="15" DelayMs="0" ReferenceName="StageAEnemy1"
