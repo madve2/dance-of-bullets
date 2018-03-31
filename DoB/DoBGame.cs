@@ -281,7 +281,7 @@ namespace DoB
 				Objects[i].Draw( gameTime, spriteBatch );
 			}
 
-            spriteBatch.DrawString( font, $"Health: {Player.Health.Amount} | Multiplier: {GameSpeedManager.DifficultyMultiplier} | Score: {ScoreKeeper.Score}", new Vector2( 650, 6 ), Color.White );
+            spriteBatch.DrawString( font, $"Health: {Player.Health.Amount} | Multiplier: {GameSpeedManager.DifficultyMultiplier.ToString("N2", CultureInfo.InvariantCulture)}x | Score: {ScoreKeeper.Score.ToString("N0", CultureInfo.InvariantCulture)}", new Vector2( 650, 6 ), Color.White );
 
             if ( !stageTransitionEffectCooldown.IsElapsed )
 			{
