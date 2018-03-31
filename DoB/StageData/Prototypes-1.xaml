@@ -10,60 +10,52 @@
 			                   Color="{dx:Constant Black}" />
         </g:Enemy.Drawers>
         <b:KeyFramedMovementBehavior EasingPow="2">
-            <b:KeyFrame DurationMs="300" TranslateX="-250" />
+            <b:KeyFrame DurationMs="300" TranslateX="-350" />
         </b:KeyFramedMovementBehavior>
         <b:BehaviorBag Loop="True" DelayMs="300">
             <!-- TODO: The "contents" of the following 4 turrets are the same, with only Alpha, Tint and WaitForEvent being different, and actually it's the last one preventing the usage of GunBehaviorReference here – room for improvement in GunBehaviorReference flexibility! -->
-            <b:TurningTurretBehavior TurnAfterShoot="{dx:Degrees 10}" GunCooldownMs="30" LengthMs="3000">
+            <b:TurningTurretBehavior TurnAfterShoot="{dx:Degrees 21.6}" GunCooldownMs="30" Capacity="18" ReloadDurationMs="999" LengthMs="1200">
                 <g:Bullet BaseTexture="bullet2" CollisionBoxScale="0.7" R="15" DieOffScreen="False"
 					          Tint="{dx:Constant Green}">
                     <b:RadialMovementBehavior Vr="200" LengthMs="1000" />
-                    <b:BehaviorBag DelayMs="1000">
-                        <b:CircularMovementBehavior Vper="200" />
-                        <b:RadialMovementBehavior Vr="650" WaitForEvent="Stage2ZEnemy4Attacks" />
-                    </b:BehaviorBag>
+                    <b:CircularMovementBehavior DelayMs="1000" Vper="180" />
+                    <b:RadialMovementBehavior Vr="650" WaitForEvent="Stage2ZEnemy4Attacks" />
                     <b:DieOffScreenBehavior DelayMs="4000" />
                 </g:Bullet>
             </b:TurningTurretBehavior>
-            <b:TurningTurretBehavior Alpha="{dx:Degrees 90}" TurnAfterShoot="{dx:Degrees 10}" GunCooldownMs="30" LengthMs="3000">
+            <b:TurningTurretBehavior Alpha="{dx:Degrees 90}" TurnAfterShoot="{dx:Degrees 21.6}" GunCooldownMs="30" Capacity="18" ReloadDurationMs="999" LengthMs="1200">
                 <g:Bullet BaseTexture="bullet2" CollisionBoxScale="0.7" R="15" DieOffScreen="False"
 					          Tint="{dx:Constant Orange}">
                     <b:RadialMovementBehavior Vr="200" LengthMs="1000" />
-                    <b:BehaviorBag DelayMs="1000">
-                        <b:CircularMovementBehavior Vper="200" />
-                        <b:RadialMovementBehavior Vr="650" WaitForEvent="Stage2ZEnemy4Attacks2" />
-                    </b:BehaviorBag>
+                    <b:CircularMovementBehavior DelayMs="1000" Vper="180" />
+                    <b:RadialMovementBehavior Vr="650" WaitForEvent="Stage2ZEnemy4Attacks2" />
                     <b:DieOffScreenBehavior DelayMs="4000" />
                 </g:Bullet>
             </b:TurningTurretBehavior>
-            <b:TurningTurretBehavior Alpha="{dx:Degrees 180}" TurnAfterShoot="{dx:Degrees 10}" GunCooldownMs="30" LengthMs="3000">
+            <b:TurningTurretBehavior Alpha="{dx:Degrees 180}" TurnAfterShoot="{dx:Degrees 21.6}" GunCooldownMs="30" Capacity="18" ReloadDurationMs="999" LengthMs="1200">
                 <g:Bullet BaseTexture="bullet2" CollisionBoxScale="0.7" R="15" DieOffScreen="False"
 					          Tint="{dx:Constant Lime}">
                     <b:RadialMovementBehavior Vr="200" LengthMs="1000" />
-                    <b:BehaviorBag DelayMs="1000">
-                        <b:CircularMovementBehavior Vper="200" />
-                        <b:RadialMovementBehavior Vr="650" WaitForEvent="Stage2ZEnemy4Attacks3" />
-                    </b:BehaviorBag>
+                    <b:CircularMovementBehavior DelayMs="1000" Vper="180" />
+                    <b:RadialMovementBehavior Vr="650" WaitForEvent="Stage2ZEnemy4Attacks3" />
                     <b:DieOffScreenBehavior DelayMs="4000" />
                 </g:Bullet>
             </b:TurningTurretBehavior>
-            <b:TurningTurretBehavior Alpha="{dx:Degrees 270}" TurnAfterShoot="{dx:Degrees 10}" GunCooldownMs="30" LengthMs="3000">
+            <b:TurningTurretBehavior Alpha="{dx:Degrees 270}" TurnAfterShoot="{dx:Degrees 21.6}" GunCooldownMs="30" Capacity="18" ReloadDurationMs="999" LengthMs="1200">
                 <g:Bullet BaseTexture="bullet2" CollisionBoxScale="0.7" R="15" DieOffScreen="False"
 					          Tint="{dx:Constant Red}">
                     <b:RadialMovementBehavior Vr="200" LengthMs="1000" />
-                    <b:BehaviorBag DelayMs="1000">
-                        <b:CircularMovementBehavior Vper="200" />
-                        <b:RadialMovementBehavior Vr="650" WaitForEvent="Stage2ZEnemy4Attacks4" />
-                    </b:BehaviorBag>
+                    <b:CircularMovementBehavior DelayMs="1000" Vper="180" />
+                    <b:RadialMovementBehavior Vr="650" WaitForEvent="Stage2ZEnemy4Attacks4" />
                     <b:DieOffScreenBehavior DelayMs="4000" />
                 </g:Bullet>
             </b:TurningTurretBehavior>
-            <b:NopBehavior DelayMs="3000" LengthMs="2000" />
+            <b:NopBehavior DelayMs="1200" LengthMs="2000" />
+            <b:FireEventBehavior DelayMs="3200" EventName="Stage2ZEnemy4Attacks" />
+            <b:FireEventBehavior DelayMs="3500" EventName="Stage2ZEnemy4Attacks2" />
+            <b:FireEventBehavior DelayMs="3800" EventName="Stage2ZEnemy4Attacks3" />
+            <b:FireEventBehavior DelayMs="4100" EventName="Stage2ZEnemy4Attacks4" />
         </b:BehaviorBag>
-        <b:FireEventBehavior CooldownMs="5000" EventName="Stage2ZEnemy4Attacks" />
-        <b:FireEventBehavior DelayMs="300" CooldownMs="5000" EventName="Stage2ZEnemy4Attacks2" />
-        <b:FireEventBehavior DelayMs="600" CooldownMs="5000" EventName="Stage2ZEnemy4Attacks3" />
-        <b:FireEventBehavior DelayMs="900" CooldownMs="5000" EventName="Stage2ZEnemy4Attacks4" />
     </g:Enemy>
 
     <g:Enemy x:Key="Stage2ZEnemy0" BaseTexture="wasp" EventOnDeath="Stage2ZEnemy0Died" Lives="180"
